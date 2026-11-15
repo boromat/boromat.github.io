@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <!-- English version of the site. Keep it in sync with ../index.html (Polish). -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-qOhFsq0QMV2REqNwk5hGH5bZE9SkX6gt6yeyKdYPv+U='; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <script>document.documentElement.classList.add("js")</script>
+  <title>Mateusz Borowy · Projects</title>
+  <meta name="description" content="AI tools that mask personal data before it reaches the model. Projects by Mateusz Borowy: polanon, PolGate, PolCV, PolSales and PolCRM.">
+  <meta name="author" content="Mateusz Borowy">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+  <link rel="canonical" href="https://boromat.github.io/en/">
+  <link rel="alternate" hreflang="pl" href="https://boromat.github.io/">
+  <link rel="alternate" hreflang="en" href="https://boromat.github.io/en/">
+  <link rel="alternate" hreflang="x-default" href="https://boromat.github.io/en/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="pl_PL">
+  <meta property="og:site_name" content="Mateusz Borowy · Projects">
+  <meta property="og:title" content="AI tools that don’t send your data">
+  <meta property="og:description" content="Projects by Mateusz Borowy: polanon, PolGate, PolCV, PolSales and PolCRM. Personal data is masked before it reaches the AI model.">
+  <meta property="og:url" content="https://boromat.github.io/en/">
+  <meta property="og:image" content="https://boromat.github.io/assets/og-en.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="The words “AI tools that don’t send your data” and the tokens OSOBA_1, PESEL_1, IBAN_1.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI tools that don’t send your data">
+  <meta name="twitter:description" content="Projects by Mateusz Borowy: polanon, PolGate, PolCV, PolSales and PolCRM.">
+  <meta name="twitter:image" content="https://boromat.github.io/assets/og-en.png">
+
+  <link rel="icon" href="../favicon.ico" sizes="32x32">
+  <link rel="icon" href="../assets/ikona.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+  <link rel="manifest" href="../site.webmanifest">
+  <link rel="stylesheet" href="../style.css">
+  <script src="../script.js" defer></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://boromat.github.io/#person",
+        "name": "Mateusz Borowy",
+        "url": "https://boromat.github.io/en/",
+        "sameAs": ["https://github.com/boromat", "https://www.linkedin.com/in/mateuszborowy/"],
+        "description": "Cognitive Technologies and Social Media student at the Silesian University of Technology. Builds AI apps that mask personal data.",
+        "affiliation": { "@type": "CollegeOrUniversity", "name": "Silesian University of Technology" },
+        "knowsAbout": ["Python", "FastAPI", "Flask", "SQLAlchemy", "PostgreSQL", "React", "TypeScript", "Docker", "Personal data masking", "LLM applications", "Tool calling", "AI model evaluation"]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://boromat.github.io/en/#website",
+        "url": "https://boromat.github.io/en/",
+        "name": "Mateusz Borowy · Projects",
+        "inLanguage": "en",
+        "author": { "@id": "https://boromat.github.io/#person" }
+      },
+      {
+        "@type": "SoftwareSourceCode",
+        "@id": "https://boromat.github.io/#polanon",
+        "name": "polanon",
+        "codeRepository": "https://github.com/boromat/polanon",
+        "programmingLanguage": "Python",
+        "license": "https://opensource.org/licenses/MIT",
+        "description": "Python library for reversible masking of Polish personal data in LLM requests.",
+        "author": { "@id": "https://boromat.github.io/#person" }
+      },
+      {
+        "@type": "SoftwareSourceCode",
+        "@id": "https://boromat.github.io/#polgate",
+        "name": "PolGate",
+        "codeRepository": "https://github.com/boromat/polgate",
+        "programmingLanguage": "Python",
+        "license": "https://opensource.org/licenses/MIT",
+        "description": "Self-hosted company chat for Claude and GPT that masks personal data before it reaches the AI provider.",
+        "author": { "@id": "https://boromat.github.io/#person" }
+      },
+      {
+        "@type": "SoftwareSourceCode",
+        "@id": "https://boromat.github.io/#polcv",
+        "name": "PolCV",
+        "codeRepository": "https://github.com/boromat/polcv",
+        "programmingLanguage": "TypeScript",
+        "license": "https://opensource.org/licenses/MIT",
+        "description": "Desktop app that tailors a CV to a specific job ad on the Polish job market.",
+        "author": { "@id": "https://boromat.github.io/#person" }
+      },
+      {
+        "@type": "SoftwareSourceCode",
+        "@id": "https://boromat.github.io/#polsales",
+        "name": "PolSales",
+        "codeRepository": "https://github.com/boromat/polsales",
+        "programmingLanguage": "Python",
+        "description": "Sales and marketing dashboard with an AI assistant that only sees customer data after it has been masked.",
+        "author": { "@id": "https://boromat.github.io/#person" }
+      },
+      {
+        "@type": "SoftwareSourceCode",
+        "@id": "https://boromat.github.io/#polcrm",
+        "name": "PolCRM",
+        "codeRepository": "https://github.com/boromat/polcrm",
+        "programmingLanguage": "Python",
+        "license": "https://opensource.org/licenses/MIT",
+        "description": "CRM, sales pipeline and finances for a small web and SEO agency, with an AI assistant that carries out tasks itself.",
+        "author": { "@id": "https://boromat.github.io/#person" }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+<a class="skip-link" href="#content">Skip to content</a>
+
+<header class="nav" id="top">
+  <div class="nav-inner">
+    <a class="nav-brand" href="#top">Mateusz Borowy</a>
+    <div class="nav-end">
+      <nav class="nav-links" id="nav-links" aria-label="Page sections">
+        <a href="#how-it-works">How it works</a>
+        <a href="#projects">Projects</a>
+        <a href="#recruiters">For recruiters</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="lang" href="../" hreflang="pl" lang="pl" data-lang-switch>PL<span class="sr-only"> – wersja polska</span></a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links">
+        <span class="sr-only">Menu</span>
+        <span class="bar bar-top" aria-hidden="true"></span><span class="bar bar-bottom" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="content" tabindex="-1">
+
+<!-- ============ 1. HERO ============ -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="wrap">
+    <p class="eyebrow">Mateusz Borowy · AI and automation</p>
+    <h1 class="hero-title" id="hero-title">AI tools that don’t send <span class="accent-text">your data.</span></h1>
+    <p class="lead">I build AI apps for companies and job seekers. Each of them can mask personal data before anything reaches the model.</p>
+    <div class="cta-row">
+      <a class="btn" href="#projects">See the projects</a>
+      <a class="more" href="#recruiters">I’m a recruiter</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 2. HOW IT WORKS ============ -->
+<section class="section alt" id="how-it-works" aria-labelledby="how-title">
+  <div class="wrap">
+    <h2 class="display center" id="how-title">How it works.</h2>
+    <p class="lead center">One example in three steps.</p>
+
+    <!-- Without JavaScript all three steps are shown one below another; the script turns them into a switch. -->
+    <div class="demo" id="demo">
+      <div class="steps-switch" role="group" aria-label="Example step">
+        <button type="button" data-step="1" aria-pressed="true"><span class="n" aria-hidden="true">1</span>You write</button>
+        <button type="button" data-step="2" aria-pressed="false"><span class="n" aria-hidden="true">2</span>The model sees</button>
+        <button type="button" data-step="3" aria-pressed="false"><span class="n" aria-hidden="true">3</span>You get back</button>
+      </div>
+
+      <div class="demo-stage">
+        <div class="demo-step" data-step-panel="1">
+          <h3 class="demo-label">1. You write</h3>
+          <p class="demo-text">Please correct the invoice for <mark>Jan Kowalski</mark>, PESEL <mark>50810112354</mark>, account <mark>PL61 1090 1014 0000 0712 1981 2874</mark>.</p>
+          <p class="demo-caption">You write as usual, with real data.</p>
+        </div>
+        <div class="demo-step" data-step-panel="2">
+          <h3 class="demo-label">2. The model sees</h3>
+          <p class="demo-text">Please correct the invoice for <code class="tok">&lt;OSOBA_1&gt;</code>, PESEL <code class="tok">&lt;PESEL_1&gt;</code>, account <code class="tok">&lt;IBAN_1&gt;</code>.</p>
+          <p class="demo-caption">Before the text reaches a model such as GPT or Claude, personal data is replaced with tokens. The AI provider gets tokens instead of the data.</p>
+        </div>
+        <div class="demo-step" data-step-panel="3">
+          <h3 class="demo-label">3. You get back</h3>
+          <p class="demo-text">The corrected invoice for <mark>Jan Kowalski</mark> is ready. The refund will go to account <mark>PL61 1090 1014 0000 0712 1981 2874</mark>.</p>
+          <p class="demo-caption">The model answers with tokens, and the real data goes back in place. The token table never leaves your computer or server.</p>
+        </div>
+      </div>
+    </div>
+    <p class="fineprint center">The data in this example is made up. Token names are Polish: OSOBA means person.</p>
+  </div>
+</section>
+
+<!-- ============ 3. PROJECTS ============ -->
+<section id="projects" aria-labelledby="projects-title">
+  <div class="section-head">
+    <div class="wrap">
+      <h2 class="display center" id="projects-title">Projects.</h2>
+      <p class="lead center">Five tools for different people. Each of them can mask personal data with the same engine.</p>
+
+      <nav class="strip" aria-label="Project list">
+        <a href="#polanon"><strong>polanon</strong><span>for developers</span></a>
+        <a href="#polgate"><strong>PolGate</strong><span>for companies</span></a>
+        <a href="#polcv"><strong>PolCV</strong><span>for job seekers</span></a>
+        <a href="#polsales"><strong>PolSales</strong><span>for trading firms</span></a>
+        <a href="#polcrm"><strong>PolCRM</strong><span>for agencies</span></a>
+      </nav>
+    </div>
+  </div>
+
+  <article class="product" id="polanon" aria-labelledby="polanon-title">
+    <div class="wrap">
+      <header class="product-head reveal">
+        <p class="eyebrow">For developers · Python library</p>
+        <h3 class="product-name" id="polanon-title">polanon</h3>
+        <p class="tagline">Masks personal data in text before it reaches the model, and puts it back in the answer. The other projects use it too.</p>
+        <div class="cta-row">
+          <a class="btn btn-small" href="https://github.com/boromat/polanon" target="_blank" rel="noopener">View on GitHub<span class="sr-only">: polanon</span></a>
+          <a class="more" href="https://pypi.org/project/polanon/" target="_blank" rel="noopener">Install from PyPI<span class="sr-only">: polanon</span></a>
+        </div>
+      </header>
+      <figure class="shot reveal">
+        <picture>
+          <source media="(prefers-reduced-motion: reduce)" srcset="../assets/polanon-poster.webp" type="image/webp">
+          <img src="../assets/polanon.webp" width="943" height="417" loading="lazy" decoding="async" alt="Terminal: polanon replaces a name, a PESEL number and a bank account with tokens, then restores them in the model’s answer.">
+        </picture>
+      </figure>
+      <ul class="facts reveal">
+        <li><strong>98%</strong><span>of values fully masked in my test with the spaCy model. Rules alone: 86%, Presidio: 66%</span></li>
+        <li><strong>0</strong><span>dependencies in the core: plain Python is enough</span></li>
+        <li><strong>7</strong><span>Polish grammatical cases in which it recognizes first names and surnames</span></li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="product alt" id="polgate" aria-labelledby="polgate-title">
+    <div class="wrap">
+      <header class="product-head reveal">
+        <p class="eyebrow">For companies · self-hosted</p>
+        <h3 class="product-name" id="polgate-title">PolGate</h3>
+        <p class="tagline">A company chat with GPT and Claude models where employees can paste real documents. Personal data turns into tokens before a message leaves the company.</p>
+        <div class="cta-row">
+          <a class="btn btn-small" href="https://github.com/boromat/polgate" target="_blank" rel="noopener">View on GitHub<span class="sr-only">: PolGate</span></a>
+          <a class="more" href="https://github.com/boromat/polgate#try-it" target="_blank" rel="noopener">How to run it<span class="sr-only">: PolGate</span></a>
+        </div>
+      </header>
+      <figure class="shot reveal">
+        <picture>
+          <source media="(prefers-reduced-motion: reduce)" srcset="../assets/polgate-poster.webp" type="image/webp">
+          <img src="../assets/polgate.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="PolGate chat: a message with a name, a PESEL number and a bank account reaches the model as tokens, and the answer comes back with the original data.">
+        </picture>
+      </figure>
+      <ul class="facts reveal">
+        <li><strong>0 of 125</strong><span>protected values reached the provider in my leak test</span></li>
+        <li><strong>60 of 60</strong><span>answers came back with the real data</span></li>
+        <li><strong>1</strong><span>Docker command to start the gateway</span></li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="product" id="polcv" aria-labelledby="polcv-title">
+    <div class="wrap">
+      <header class="product-head reveal">
+        <p class="eyebrow">For job seekers · Windows app</p>
+        <h3 class="product-name" id="polcv-title">PolCV</h3>
+        <p class="tagline">Turns a link to a Polish job ad into a CV tailored to it, scores the CV like an applicant tracking system and helps you prepare for the interview.</p>
+        <div class="cta-row">
+          <a class="btn btn-small" href="https://github.com/boromat/polcv/blob/main/README.en.md" target="_blank" rel="noopener">View on GitHub<span class="sr-only">: PolCV</span></a>
+          <a class="more" href="https://github.com/boromat/polcv/blob/main/README.en.md#quick-start" target="_blank" rel="noopener">How to run it<span class="sr-only">: PolCV</span></a>
+        </div>
+      </header>
+      <figure class="shot reveal">
+        <picture>
+          <source media="(prefers-reduced-motion: reduce)" srcset="../assets/polcv-poster.webp" type="image/webp">
+          <img src="../assets/polcv.webp" width="958" height="599" loading="lazy" decoding="async" alt="PolCV in Polish: pasting a job ad, questions about gaps in the profile, a CV with a live preview and a scoring report.">
+        </picture>
+      </figure>
+      <ul class="facts reveal">
+        <li><strong>$0.05–0.15</strong><span>typical AI cost per CV; the app itself is free</span></li>
+        <li><strong>0–100</strong><span>CV score: simulated ATS rules plus an AI opinion, with automatic fixes</span></li>
+        <li><strong>4</strong><span>Polish job boards it reads, including pracuj.pl and justjoin.it</span></li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="product alt" id="polsales" aria-labelledby="polsales-title">
+    <div class="wrap">
+      <header class="product-head reveal">
+        <p class="eyebrow">For small trading businesses</p>
+        <h3 class="product-name" id="polsales-title">PolSales</h3>
+        <p class="tagline">Orders, ads and margin in one dashboard. You ask the assistant about the results in plain language.</p>
+        <div class="cta-row">
+          <a class="btn btn-small" href="https://github.com/boromat/polsales/blob/main/README.en.md" target="_blank" rel="noopener">View on GitHub<span class="sr-only">: PolSales</span></a>
+          <a class="more" href="https://github.com/boromat/polsales/blob/main/README.en.md#getting-started" target="_blank" rel="noopener">How to run it<span class="sr-only">: PolSales</span></a>
+        </div>
+      </header>
+      <figure class="shot reveal">
+        <picture>
+          <source media="(prefers-reduced-motion: reduce)" srcset="../assets/polsales-poster.webp" type="image/webp">
+          <img src="../assets/polsales.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="PolSales in Polish: a sales dashboard with charts and an AI assistant answering questions about customers.">
+        </picture>
+      </figure>
+      <ul class="facts reveal">
+        <li><strong>LTV · ROAS</strong><span>plus CAC and margin, calculated from orders and ads</span></li>
+        <li><strong>4</strong><span>marketing data sources: Meta Ads, Google Ads, GA4 and posts</span></li>
+        <li><strong>13</strong><span>assistant tools, all of them read-only</span></li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="product" id="polcrm" aria-labelledby="polcrm-title">
+    <div class="wrap">
+      <header class="product-head reveal">
+        <p class="eyebrow">For web and SEO agencies</p>
+        <h3 class="product-name" id="polcrm-title">PolCRM</h3>
+        <p class="tagline">Clients, sales, tasks and finances in one app. The assistant creates tasks and notes on its own.</p>
+        <div class="cta-row">
+          <a class="btn btn-small" href="https://github.com/boromat/polcrm/blob/main/README.en.md" target="_blank" rel="noopener">View on GitHub<span class="sr-only">: PolCRM</span></a>
+          <a class="more" href="https://github.com/boromat/polcrm/blob/main/README.en.md#running-locally" target="_blank" rel="noopener">How to run it<span class="sr-only">: PolCRM</span></a>
+        </div>
+      </header>
+      <figure class="shot reveal">
+        <picture>
+          <source media="(prefers-reduced-motion: reduce)" srcset="../assets/polcrm-poster.webp" type="image/webp">
+          <img src="../assets/polcrm.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="PolCRM: team dashboard, company list, sales pipeline, tasks, finances and the AI assistant.">
+        </picture>
+      </figure>
+      <ul class="facts reveal">
+        <li><strong>5</strong><span>areas in a client website audit, with a PDF report</span></li>
+        <li><strong>12</strong><span>tools the assistant uses inside the CRM</span></li>
+        <li><strong>PL · EN</strong><span>the whole interface in two languages</span></li>
+      </ul>
+    </div>
+  </article>
+</section>
+
+<!-- ============ 4. FOR RECRUITERS ============ -->
+<section class="section theme-dark" id="recruiters" aria-labelledby="recruiters-title">
+  <div class="wrap">
+    <h2 class="display center" id="recruiters-title">For recruiters.</h2>
+
+    <div class="recruit">
+      <div class="recruit-col">
+        <h3 class="col-title">At a glance</h3>
+        <dl class="stack">
+          <div><dt>Studies</dt><dd>Bachelor’s in Cognitive Technologies and Social Media, Silesian University of Technology (since 2024)</dd></div>
+          <div><dt>Work</dt><dd>Since August 2025 I’ve been automating company documentation: scripts and n8n workflows with Claude Code, prompts with data anonymization.</dd></div>
+          <div><dt>Backend</dt><dd>Python, FastAPI, Flask, SQLAlchemy, PostgreSQL</dd></div>
+          <div><dt>Frontend</dt><dd>TypeScript, React, Vite, Tailwind, HTMX</dd></div>
+          <div><dt>AI</dt><dd>tool calling, RAG, model evaluation, spaCy, Ollama, OpenRouter</dd></div>
+          <div><dt>Tools</dt><dd>n8n, Claude Code, Docker, GitHub Actions, pytest</dd></div>
+          <div><dt>Languages</dt><dd>Polish (native), English C1</dd></div>
+        </dl>
+      </div>
+      <div class="recruit-col">
+        <h3 class="col-title">Got 10 minutes? Start here</h3>
+        <ol class="links">
+          <li><a href="https://github.com/boromat/polanon/blob/main/benchmarks/README.md" target="_blank" rel="noopener">polanon benchmark</a><span>Comparison with Presidio, and what the test does not prove.</span></li>
+          <li><a href="https://github.com/boromat/polgate/blob/main/evals/README.md" target="_blank" rel="noopener">PolGate leak test</a><span>27 conversations I wrote: none of the 125 protected values reached the provider.</span></li>
+          <li><a href="https://github.com/boromat/polcrm/blob/main/ai_assistant.py" target="_blank" rel="noopener">PolCRM AI assistant</a><span>12 tools in JSON Schema, and tests that need no API.</span></li>
+          <li><a href="https://github.com/boromat/polsales/blob/main/evals/README.md" target="_blank" rel="noopener" hreflang="pl">PolSales assistant evaluation</a><span>18 questions checked against SQL, plus prompt injection traps. In Polish.</span></li>
+          <li><a href="https://github.com/boromat/polcv/blob/main/evals/README.md" target="_blank" rel="noopener" hreflang="pl">PolCV evaluations</a><span>How I measure answer quality, cost and time. In Polish.</span></li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="cta-row">
+      <a class="btn" href="#contact">Email me</a>
+      <a class="more" href="https://www.linkedin.com/in/mateuszborowy/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="more" href="https://github.com/boromat" target="_blank" rel="noopener">GitHub profile</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5. CONTACT ============ -->
+<section class="section" id="contact" aria-labelledby="contact-title">
+  <div class="wrap center">
+    <h2 class="display" id="contact-title">Let’s talk.</h2>
+    <p class="lead">Questions about one of the projects? Email me.</p>
+    <p class="mail">
+      <a href="mailto:mateuszwborowy@gmail.com">mateuszwborowy@gmail.com</a>
+      <button type="button" class="copy" data-copy="mateuszwborowy@gmail.com">Copy<span class="sr-only"> email address</span></button>
+    </p>
+    <div class="cta-row">
+      <a class="more" href="https://www.linkedin.com/in/mateuszborowy/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="more" href="https://github.com/boromat" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <p>© 2026 Mateusz Borowy. No cookies, analytics or third-party scripts.</p>
+    <p>The data in the examples and animations is made up.</p>
+  </div>
+</footer>
+
+<p class="sr-only" id="status" role="status" aria-live="polite"></p>
+
+</body>
+</html>
