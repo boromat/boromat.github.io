@@ -174,7 +174,7 @@
   }
 
   // ---------- Kopiowanie adresu e-mail ----------
-  document.querySelectorAll(".copy").forEach(function (btn) {
+  document.querySelectorAll(".copy:not([data-copy-custom])").forEach(function (btn) {
     var label = btn.innerHTML;
     var timer = null;
     btn.addEventListener("click", function () {

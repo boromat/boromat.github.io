@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <!-- Jak na stronie głównej, plus worker-src: PolAnon działa w tle, w pliku demo/worker.js. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-qOhFsq0QMV2REqNwk5hGH5bZE9SkX6gt6yeyKdYPv+U='; worker-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <script>document.documentElement.classList.add("js")</script>
+  <title>Wypróbuj PolAnon · Mateusz Borowy</title>
+  <meta name="description" content="Wpisz tekst z danymi osobowymi i zobacz, co dostałby model AI. PolAnon maskuje dane w Twojej przeglądarce: nic nie jest wysyłane.">
+  <meta name="author" content="Mateusz Borowy">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+  <link rel="canonical" href="https://boromat.github.io/demo/">
+  <link rel="alternate" hreflang="pl" href="https://boromat.github.io/demo/">
+  <link rel="alternate" hreflang="en" href="https://boromat.github.io/en/demo/">
+  <link rel="alternate" hreflang="x-default" href="https://boromat.github.io/en/demo/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pl_PL">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:site_name" content="Mateusz Borowy · Projekty">
+  <meta property="og:title" content="Sprawdź, co zobaczy model">
+  <meta property="og:description" content="PolAnon maskuje dane osobowe w Twojej przeglądarce. Wpisz tekst i zobacz, co dostałby model AI.">
+  <meta property="og:url" content="https://boromat.github.io/demo/">
+  <meta property="og:image" content="https://boromat.github.io/assets/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Napis „Narzędzia AI, które nie wysyłają Twoich danych” i tokeny OSOBA_1, PESEL_1, IBAN_1.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Sprawdź, co zobaczy model">
+  <meta name="twitter:description" content="PolAnon maskuje dane osobowe w Twojej przeglądarce.">
+  <meta name="twitter:image" content="https://boromat.github.io/assets/og.png">
+
+  <link rel="icon" href="../favicon.ico" sizes="32x32">
+  <link rel="icon" href="../assets/ikona.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+  <link rel="manifest" href="../site.webmanifest">
+  <link rel="stylesheet" href="../style.css">
+  <script src="../script.js" defer></script>
+  <script src="demo.js" defer></script>
+</head>
+<body>
+
+<a class="skip-link" href="#tresc">Przejdź do treści</a>
+
+<header class="nav" id="top">
+  <div class="nav-inner">
+    <a class="nav-brand" href="../">Mateusz Borowy</a>
+    <div class="nav-end">
+      <nav class="nav-links" id="nav-links" aria-label="Sekcje strony">
+        <a href="../#jak-to-dziala">Jak to działa</a>
+        <a href="./" aria-current="page">Wypróbuj</a>
+        <a href="../#projekty">Projekty</a>
+        <a href="../#rekruter">Dla rekrutera</a>
+        <a href="../#kontakt">Kontakt</a>
+      </nav>
+      <a class="lang" href="../en/demo/" hreflang="en" lang="en" data-lang-switch>EN<span class="sr-only"> – English version</span></a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links">
+        <span class="sr-only">Menu</span>
+        <span class="bar bar-top" aria-hidden="true"></span><span class="bar bar-bottom" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="tresc" tabindex="-1">
+
+<section class="hero try-hero" aria-labelledby="hero-title">
+  <div class="wrap">
+    <p class="eyebrow">PolAnon · demo w&nbsp;przeglądarce</p>
+    <h1 class="hero-title" id="hero-title">Sprawdź, co zobaczy <span class="accent-text">model.</span></h1>
+    <p class="lead">Wpisz tekst z&nbsp;danymi osobowymi. PolAnon zamaskuje je tutaj, w&nbsp;Twojej przeglądarce. Nic nie jest wysyłane i&nbsp;nie potrzeba żadnego modelu AI.</p>
+  </div>
+</section>
+
+<section class="try" id="try" aria-label="Demo">
+  <div class="wrap try-wrap">
+    <div class="try-top">
+      <p class="try-state" id="try-state" role="status" data-state="loading"><span class="dot" aria-hidden="true"></span><span id="try-state-text">Ładowanie PolAnon w&nbsp;przeglądarce…</span></p>
+      <noscript><p class="try-state" data-state="failed"><span class="dot" aria-hidden="true"></span>Demo potrzebuje JavaScriptu: PolAnon działa w&nbsp;Twojej przeglądarce.</p></noscript>
+      <button class="btn btn-small" id="try-start" type="button" hidden>Uruchom demo (ok. 14&nbsp;MB)</button>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <h2 class="panel-title"><span class="n" aria-hidden="true">1</span><label for="try-input">Twój tekst</label></h2>
+        <div class="chips needs-js" role="group" aria-label="Przykłady">
+          <button type="button" data-example="faktura" aria-pressed="true">Faktura</button>
+          <button type="button" data-example="reklamacja" aria-pressed="false">Reklamacja</button>
+          <button type="button" data-example="rekrutacja" aria-pressed="false">Rekrutacja</button>
+          <button type="button" data-example="umowa" aria-pressed="false">Umowa</button>
+        </div>
+      </div>
+      <textarea class="try-input" id="try-input" rows="4" spellcheck="false" autocomplete="off" aria-describedby="try-input-hint">Proszę o korektę faktury dla Jana Kowalskiego, PESEL 50810112354, konto PL61 1090 1014 0000 0712 1981 2874. Potwierdzenie proszę wysłać na jan.kowalski@example.com.</textarea>
+      <p class="panel-note" id="try-input-hint">Wpisz albo wklej własny tekst. Wynik zmienia się na bieżąco.</p>
+    </div>
+
+    <div class="panel needs-js">
+      <div class="panel-head">
+        <h2 class="panel-title"><span class="n" aria-hidden="true">2</span>Co dostaje model</h2>
+        <span class="count" id="try-count"></span>
+        <button type="button" class="copy" id="try-copy" data-copy-custom>Kopiuj<span class="sr-only"> tekst dla modelu</span></button>
+      </div>
+      <div class="try-text" id="try-masked"></div>
+      <p class="panel-note" id="try-none" hidden>W&nbsp;tym tekście nie ma danych osobowych.</p>
+      <h3 class="try-subtitle" id="try-table-title" hidden>Tabela tokenów <span>· zostaje w&nbsp;Twojej przeglądarce</span></h3>
+      <table class="tokens" id="try-table" aria-labelledby="try-table-title" hidden>
+        <thead><tr><th scope="col">Token</th><th scope="col">Prawdziwa wartość</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <div class="panel needs-js">
+      <div class="panel-head">
+        <h2 class="panel-title"><span class="n" aria-hidden="true">3</span><label for="try-answer">Odpowiedź modelu</label></h2>
+      </div>
+      <textarea class="try-input" id="try-answer" rows="3" spellcheck="false" autocomplete="off" aria-describedby="try-answer-hint"></textarea>
+      <p class="panel-note" id="try-answer-hint">To udawana odpowiedź, bo demo nie łączy się z&nbsp;żadnym modelem. Zmień ją albo skopiuj tekst z&nbsp;kroku 2 do swojego czatu z&nbsp;AI i&nbsp;wklej tu jego odpowiedź. Tokeny z&nbsp;tabeli wrócą jako prawdziwe dane, a&nbsp;<code>&lt;OSOBA_1:celownik&gt;</code> wróci odmienione.</p>
+      <h3 class="try-subtitle">Ty widzisz</h3>
+      <div class="try-text" id="try-restored"></div>
+    </div>
+
+    <ul class="try-notes">
+      <li>Nic nie jest wysyłane. Gdy demo się załaduje, możesz wyłączyć internet i&nbsp;maskować dalej.</li>
+      <li>W&nbsp;przeglądarce działają same reguły, bez modelu spaCy. W&nbsp;<a href="https://github.com/boromat/polanon/blob/main/benchmarks/README.md" target="_blank" rel="noopener">moim teście</a> to 86% w&nbsp;pełni zamaskowanych danych zamiast 98%, więc nazwy miejscowości i&nbsp;nietypowe nazwy mogą przejść.</li>
+      <li>Dane w&nbsp;przykładach są fikcyjne.</li>
+    </ul>
+    <p class="sr-only" id="try-live" aria-live="polite"></p>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="use-title">
+  <div class="wrap center">
+    <h2 class="display" id="use-title">Użyj u&nbsp;siebie.</h2>
+    <p class="lead">PolAnon to biblioteka Pythona bez zależności w&nbsp;rdzeniu. Z&nbsp;modelem spaCy rozpoznaje też miejsca i&nbsp;nietypowe nazwy.</p>
+    <p class="mail">
+      <code class="install">pip install polanon</code>
+      <button type="button" class="copy" data-copy="pip install polanon">Kopiuj<span class="sr-only"> polecenie</span></button>
+    </p>
+    <div class="cta-row">
+      <a class="btn" href="https://github.com/boromat/polanon" target="_blank" rel="noopener">Zobacz na GitHubie<span class="sr-only">: PolAnon</span></a>
+      <a class="more" href="https://pypi.org/project/polanon/" target="_blank" rel="noopener">PolAnon na PyPI</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <p>© 2026 Mateusz Borowy. Bez ciasteczek, analityki i&nbsp;zewnętrznych skryptów.</p>
+    <p>Dane w&nbsp;przykładach są fikcyjne.</p>
+  </div>
+</footer>
+
+<p class="sr-only" id="status" role="status" aria-live="polite"></p>
+
+</body>
+</html>

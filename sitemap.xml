@@ -3,16 +3,30 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://boromat.github.io/</loc>
-    <lastmod>2026-11-14</lastmod>
+    <lastmod>2026-11-15</lastmod>
     <xhtml:link rel="alternate" hreflang="pl" href="https://boromat.github.io/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://boromat.github.io/en/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://boromat.github.io/en/"/>
   </url>
   <url>
     <loc>https://boromat.github.io/en/</loc>
-    <lastmod>2026-11-14</lastmod>
+    <lastmod>2026-11-15</lastmod>
     <xhtml:link rel="alternate" hreflang="pl" href="https://boromat.github.io/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://boromat.github.io/en/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://boromat.github.io/en/"/>
+  </url>
+  <url>
+    <loc>https://boromat.github.io/demo/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://boromat.github.io/demo/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boromat.github.io/en/demo/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://boromat.github.io/en/demo/"/>
+  </url>
+  <url>
+    <loc>https://boromat.github.io/en/demo/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://boromat.github.io/demo/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boromat.github.io/en/demo/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://boromat.github.io/en/demo/"/>
   </url>
 </urlset>

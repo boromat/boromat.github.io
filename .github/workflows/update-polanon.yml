@@ -1,0 +1,58 @@
+# Keeps the browser demo (demo/, en/demo/) on the newest PolAnon release.
+#
+# Once a day, and whenever started by hand (Actions -> Update PolAnon in the demo -> Run workflow),
+# it asks PyPI for the latest polanon. A polanon release on GitHub publishes the same version to PyPI.
+# A new version is checked against PyPI's SHA-256, installed on Python 3.12 (the Python inside
+# Pyodide 0.27) and tested with the demo's own glue code. Only then is it committed and the site
+# rebuilt. If anything fails, the site keeps the previous version and GitHub e-mails the failure.
+name: Update PolAnon in the demo
+
+on:
+  schedule:
+    - cron: "17 5 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: update-polanon
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+
+      - name: Look for a newer PolAnon on PyPI
+        id: check
+        run: python .github/scripts/update_polanon.py
+
+      - name: Test the demo with it
+        if: steps.check.outputs.changed == 'true'
+        env:
+          WHEEL: ${{ steps.check.outputs.wheel }}
+        run: |
+          python -m venv "$RUNNER_TEMP/venv"
+          "$RUNNER_TEMP/venv/bin/pip" install --quiet --no-deps "assets/pyodide/$WHEEL"
+          "$RUNNER_TEMP/venv/bin/python" demo/glue.py --self-test
+
+      - name: Commit and rebuild the site
+        if: steps.check.outputs.changed == 'true'
+        env:
+          VERSION: ${{ steps.check.outputs.version }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/pyodide
+          git commit -m "chore: PolAnon $VERSION in the browser demo"
+          git push
+          gh api --method POST "repos/$GITHUB_REPOSITORY/pages/builds" --silent
