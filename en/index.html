@@ -8,7 +8,7 @@
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <script>document.documentElement.classList.add("js")</script>
   <title>Mateusz Borowy · Projects</title>
-  <meta name="description" content="AI tools that mask personal data before it reaches the model. Projects by Mateusz Borowy: polanon, PolGate, PolCV, PolSales and PolCRM.">
+  <meta name="description" content="AI tools that mask personal data before it reaches the model. Projects by Mateusz Borowy: PolAnon, PolGate, PolCV, PolSales and PolCRM.">
   <meta name="author" content="Mateusz Borowy">
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
@@ -23,7 +23,7 @@
   <meta property="og:locale:alternate" content="pl_PL">
   <meta property="og:site_name" content="Mateusz Borowy · Projects">
   <meta property="og:title" content="AI tools that don’t send your data">
-  <meta property="og:description" content="Projects by Mateusz Borowy: polanon, PolGate, PolCV, PolSales and PolCRM. Personal data is masked before it reaches the AI model.">
+  <meta property="og:description" content="Projects by Mateusz Borowy: PolAnon, PolGate, PolCV, PolSales and PolCRM. Personal data is masked before it reaches the AI model.">
   <meta property="og:url" content="https://boromat.github.io/en/">
   <meta property="og:image" content="https://boromat.github.io/assets/og-en.png">
   <meta property="og:image:width" content="1200">
@@ -31,7 +31,7 @@
   <meta property="og:image:alt" content="The words “AI tools that don’t send your data” and the tokens OSOBA_1, PESEL_1, IBAN_1.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="AI tools that don’t send your data">
-  <meta name="twitter:description" content="Projects by Mateusz Borowy: polanon, PolGate, PolCV, PolSales and PolCRM.">
+  <meta name="twitter:description" content="Projects by Mateusz Borowy: PolAnon, PolGate, PolCV, PolSales and PolCRM.">
   <meta name="twitter:image" content="https://boromat.github.io/assets/og-en.png">
 
   <link rel="icon" href="../favicon.ico" sizes="32x32">
@@ -66,7 +66,7 @@
       {
         "@type": "SoftwareSourceCode",
         "@id": "https://boromat.github.io/#polanon",
-        "name": "polanon",
+        "name": "PolAnon",
         "codeRepository": "https://github.com/boromat/polanon",
         "programmingLanguage": "Python",
         "license": "https://opensource.org/licenses/MIT",
@@ -172,7 +172,7 @@
         <div class="demo-step" data-step-panel="1">
           <h3 class="demo-label">1. You write</h3>
           <p class="demo-text">Please correct the invoice for <mark>Jan Kowalski</mark>, PESEL <mark>50810112354</mark>, account <mark>PL61 1090 1014 0000 0712 1981 2874</mark>.</p>
-          <p class="demo-caption">You write as usual, with real data.</p>
+          <p class="demo-caption">No need to hide anything: the message contains a full name, a PESEL number and a bank account number.</p>
         </div>
         <div class="demo-step" data-step-panel="2">
           <h3 class="demo-label">2. The model sees</h3>
@@ -198,7 +198,7 @@
       <p class="lead center">Five tools for different people. Each of them can mask personal data with the same engine.</p>
 
       <nav class="strip" aria-label="Project list">
-        <a href="#polanon"><strong>polanon</strong><span>for developers</span></a>
+        <a href="#polanon"><strong>PolAnon</strong><span>for developers</span></a>
         <a href="#polgate"><strong>PolGate</strong><span>for companies</span></a>
         <a href="#polcv"><strong>PolCV</strong><span>for job seekers</span></a>
         <a href="#polsales"><strong>PolSales</strong><span>for trading firms</span></a>
@@ -211,21 +211,21 @@
     <div class="wrap">
       <header class="product-head reveal">
         <p class="eyebrow">For developers · Python library</p>
-        <h3 class="product-name" id="polanon-title">polanon</h3>
+        <h3 class="product-name" id="polanon-title">PolAnon</h3>
         <p class="tagline">Masks personal data in text before it reaches the model, and puts it back in the answer. The other projects use it too.</p>
         <div class="cta-row">
-          <a class="btn btn-small" href="https://github.com/boromat/polanon" target="_blank" rel="noopener">View on GitHub<span class="sr-only">: polanon</span></a>
-          <a class="more" href="https://pypi.org/project/polanon/" target="_blank" rel="noopener">Install from PyPI<span class="sr-only">: polanon</span></a>
+          <a class="btn btn-small" href="https://github.com/boromat/polanon" target="_blank" rel="noopener">View on GitHub<span class="sr-only">: PolAnon</span></a>
+          <a class="more" href="https://pypi.org/project/polanon/" target="_blank" rel="noopener">Install from PyPI<span class="sr-only">: PolAnon</span></a>
         </div>
       </header>
       <figure class="shot reveal">
         <picture>
           <source media="(prefers-reduced-motion: reduce)" srcset="../assets/polanon-poster.webp" type="image/webp">
-          <img src="../assets/polanon.webp" width="943" height="417" loading="lazy" decoding="async" alt="Terminal: polanon replaces a name, a PESEL number and a bank account with tokens, then restores them in the model’s answer.">
+          <img src="../assets/polanon.webp" width="943" height="417" loading="lazy" decoding="async" alt="Terminal: PolAnon replaces a name, a PESEL number and a bank account with tokens, then restores them in the model’s answer.">
         </picture>
       </figure>
       <ul class="facts reveal">
-        <li><strong>98%</strong><span>of values fully masked in my test with the spaCy model. Rules alone: 86%, Presidio: 66%</span></li>
+        <li><strong>98%</strong><span>of values fully masked in my test with the spaCy model (rules alone: 86%, Presidio: 66%)</span></li>
         <li><strong>0</strong><span>dependencies in the core: plain Python is enough</span></li>
         <li><strong>7</strong><span>Polish grammatical cases in which it recognizes first names and surnames</span></li>
       </ul>
@@ -354,7 +354,7 @@
       <div class="recruit-col">
         <h3 class="col-title">Got 10 minutes? Start here</h3>
         <ol class="links">
-          <li><a href="https://github.com/boromat/polanon/blob/main/benchmarks/README.md" target="_blank" rel="noopener">polanon benchmark</a><span>Comparison with Presidio, and what the test does not prove.</span></li>
+          <li><a href="https://github.com/boromat/polanon/blob/main/benchmarks/README.md" target="_blank" rel="noopener">PolAnon benchmark</a><span>Comparison with Presidio, and what the test does not prove.</span></li>
           <li><a href="https://github.com/boromat/polgate/blob/main/evals/README.md" target="_blank" rel="noopener">PolGate leak test</a><span>27 conversations I wrote: none of the 125 protected values reached the provider.</span></li>
           <li><a href="https://github.com/boromat/polcrm/blob/main/ai_assistant.py" target="_blank" rel="noopener">PolCRM AI assistant</a><span>12 tools in JSON Schema, and tests that need no API.</span></li>
           <li><a href="https://github.com/boromat/polsales/blob/main/evals/README.md" target="_blank" rel="noopener" hreflang="pl">PolSales assistant evaluation</a><span>18 questions checked against SQL, plus prompt injection traps. In Polish.</span></li>

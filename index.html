@@ -9,7 +9,7 @@
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <script>document.documentElement.classList.add("js")</script>
   <title>Mateusz Borowy · Projekty</title>
-  <meta name="description" content="Narzędzia AI, które maskują dane osobowe, zanim trafią do modelu. Projekty Mateusza Borowego: polanon, PolGate, PolCV, PolSales i PolCRM.">
+  <meta name="description" content="Narzędzia AI, które maskują dane osobowe, zanim trafią do modelu. Projekty Mateusza Borowego: PolAnon, PolGate, PolCV, PolSales i PolCRM.">
   <meta name="author" content="Mateusz Borowy">
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
@@ -24,7 +24,7 @@
   <meta property="og:locale:alternate" content="en_US">
   <meta property="og:site_name" content="Mateusz Borowy · Projekty">
   <meta property="og:title" content="Narzędzia AI, które nie wysyłają Twoich danych">
-  <meta property="og:description" content="Projekty Mateusza Borowego: polanon, PolGate, PolCV, PolSales i PolCRM. Dane osobowe są maskowane, zanim trafią do modelu AI.">
+  <meta property="og:description" content="Projekty Mateusza Borowego: PolAnon, PolGate, PolCV, PolSales i PolCRM. Dane osobowe są maskowane, zanim trafią do modelu AI.">
   <meta property="og:url" content="https://boromat.github.io/">
   <meta property="og:image" content="https://boromat.github.io/assets/og.png">
   <meta property="og:image:width" content="1200">
@@ -32,7 +32,7 @@
   <meta property="og:image:alt" content="Napis „Narzędzia AI, które nie wysyłają Twoich danych” i tokeny OSOBA_1, PESEL_1, IBAN_1.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Narzędzia AI, które nie wysyłają Twoich danych">
-  <meta name="twitter:description" content="Projekty Mateusza Borowego: polanon, PolGate, PolCV, PolSales i PolCRM.">
+  <meta name="twitter:description" content="Projekty Mateusza Borowego: PolAnon, PolGate, PolCV, PolSales i PolCRM.">
   <meta name="twitter:image" content="https://boromat.github.io/assets/og.png">
 
   <link rel="icon" href="favicon.ico" sizes="32x32">
@@ -67,7 +67,7 @@
       {
         "@type": "SoftwareSourceCode",
         "@id": "https://boromat.github.io/#polanon",
-        "name": "polanon",
+        "name": "PolAnon",
         "codeRepository": "https://github.com/boromat/polanon",
         "programmingLanguage": "Python",
         "license": "https://opensource.org/licenses/MIT",
@@ -173,12 +173,12 @@
         <div class="demo-step" data-step-panel="1">
           <h3 class="demo-label">1. Piszesz</h3>
           <p class="demo-text">Proszę o&nbsp;korektę faktury dla <mark>Jana Kowalskiego</mark>, PESEL <mark>50810112354</mark>, konto <mark>PL61 1090 1014 0000 0712 1981 2874</mark>.</p>
-          <p class="demo-caption">Piszesz normalnie, z&nbsp;prawdziwymi danymi.</p>
+          <p class="demo-caption">Nie musisz niczego ukrywać: wiadomość zawiera imię i&nbsp;nazwisko, PESEL oraz numer konta.</p>
         </div>
         <div class="demo-step" data-step-panel="2">
           <h3 class="demo-label">2. Model widzi</h3>
           <p class="demo-text">Proszę o&nbsp;korektę faktury dla <code class="tok">&lt;OSOBA_1&gt;</code>, PESEL <code class="tok">&lt;PESEL_1&gt;</code>, konto <code class="tok">&lt;IBAN_1&gt;</code>.</p>
-          <p class="demo-caption">Zanim tekst trafi do modelu, np. GPT albo Claude, dane osobowe zamieniają się w&nbsp;tokeny. Dostawca AI dostaje tokeny zamiast danych.</p>
+          <p class="demo-caption">Zanim tekst trafi do modelu (np. GPT albo Claude), dane osobowe zamieniają się w&nbsp;tokeny. Dostawca AI dostaje tokeny zamiast danych.</p>
         </div>
         <div class="demo-step" data-step-panel="3">
           <h3 class="demo-label">3. Dostajesz</h3>
@@ -199,7 +199,7 @@
       <p class="lead center">Pięć narzędzi dla różnych ludzi. Każde z&nbsp;nich może maskować dane osobowe tym samym silnikiem.</p>
 
       <nav class="strip" aria-label="Lista projektów">
-        <a href="#polanon"><strong>polanon</strong><span>dla programistów</span></a>
+        <a href="#polanon"><strong>PolAnon</strong><span>dla programistów</span></a>
         <a href="#polgate"><strong>PolGate</strong><span>dla firm</span></a>
         <a href="#polcv"><strong>PolCV</strong><span>dla szukających pracy</span></a>
         <a href="#polsales"><strong>PolSales</strong><span>dla firm handlowych</span></a>
@@ -212,21 +212,21 @@
     <div class="wrap">
       <header class="product-head reveal">
         <p class="eyebrow">Dla programistów · biblioteka Pythona</p>
-        <h3 class="product-name" id="polanon-title">polanon</h3>
+        <h3 class="product-name" id="polanon-title">PolAnon</h3>
         <p class="tagline">Maskuje dane osobowe w&nbsp;tekście, zanim trafi do modelu, i&nbsp;przywraca je w&nbsp;odpowiedzi. Korzystają z&nbsp;niego pozostałe projekty.</p>
         <div class="cta-row">
-          <a class="btn btn-small" href="https://github.com/boromat/polanon" target="_blank" rel="noopener">Zobacz na GitHubie<span class="sr-only">: polanon</span></a>
-          <a class="more" href="https://pypi.org/project/polanon/" target="_blank" rel="noopener">Instalacja z&nbsp;PyPI<span class="sr-only">: polanon</span></a>
+          <a class="btn btn-small" href="https://github.com/boromat/polanon" target="_blank" rel="noopener">Zobacz na GitHubie<span class="sr-only">: PolAnon</span></a>
+          <a class="more" href="https://pypi.org/project/polanon/" target="_blank" rel="noopener">Instalacja z&nbsp;PyPI<span class="sr-only">: PolAnon</span></a>
         </div>
       </header>
       <figure class="shot reveal">
         <picture>
           <source media="(prefers-reduced-motion: reduce)" srcset="assets/polanon-poster.webp" type="image/webp">
-          <img src="assets/polanon.webp" width="943" height="417" loading="lazy" decoding="async" alt="Terminal: polanon zamienia imię, PESEL i numer konta na tokeny, a potem przywraca je w odpowiedzi modelu.">
+          <img src="assets/polanon.webp" width="943" height="417" loading="lazy" decoding="async" alt="Terminal: PolAnon zamienia imię, PESEL i numer konta na tokeny, a potem przywraca je w odpowiedzi modelu.">
         </picture>
       </figure>
       <ul class="facts reveal">
-        <li><strong>98%</strong><span>w&nbsp;pełni zamaskowanych danych w&nbsp;moim teście z&nbsp;modelem spaCy. Same reguły: 86%, Presidio: 66%</span></li>
+        <li><strong>98%</strong><span>w&nbsp;pełni zamaskowanych danych w&nbsp;moim teście z&nbsp;modelem spaCy (same reguły: 86%, Presidio: 66%)</span></li>
         <li><strong>0</strong><span>zależności w&nbsp;rdzeniu, wystarczy sam Python</span></li>
         <li><strong>7</strong><span>przypadków odmiany, w&nbsp;których rozpoznaje imiona i&nbsp;nazwiska</span></li>
       </ul>
@@ -253,7 +253,7 @@
       <ul class="facts reveal">
         <li><strong>0 ze 125</strong><span>chronionych wartości dotarło do dostawcy w&nbsp;moim teście wycieków</span></li>
         <li><strong>60 z&nbsp;60</strong><span>odpowiedzi wróciło z&nbsp;prawdziwymi danymi</span></li>
-        <li><strong>1</strong><span>komenda Dockera, żeby uruchomić bramkę</span></li>
+        <li><strong>1</strong><span>polecenie Dockera wystarczy, żeby uruchomić bramkę</span></li>
       </ul>
     </div>
   </article>
@@ -301,7 +301,7 @@
         </picture>
       </figure>
       <ul class="facts reveal">
-        <li><strong>LTV · ROAS</strong><span>a&nbsp;także CAC i&nbsp;marża, liczone z&nbsp;zamówień i&nbsp;reklam</span></li>
+        <li><strong>LTV · ROAS</strong><span>oraz CAC i&nbsp;marża, liczone z&nbsp;zamówień i&nbsp;reklam</span></li>
         <li><strong>4</strong><span>źródła danych marketingowych: Meta Ads, Google Ads, GA4 i&nbsp;posty</span></li>
         <li><strong>13</strong><span>narzędzi asystenta, wszystkie tylko do odczytu</span></li>
       </ul>
@@ -327,7 +327,7 @@
       </figure>
       <ul class="facts reveal">
         <li><strong>5</strong><span>obszarów audytu strony klienta, z&nbsp;raportem PDF</span></li>
-        <li><strong>12</strong><span>narzędzi, którymi asystent działa w&nbsp;CRM</span></li>
+        <li><strong>12</strong><span>narzędzi, z&nbsp;których asystent korzysta w&nbsp;CRM-ie</span></li>
         <li><strong>PL · EN</strong><span>cały interfejs w&nbsp;dwóch językach</span></li>
       </ul>
     </div>
@@ -355,10 +355,10 @@
       <div class="recruit-col">
         <h3 class="col-title">Masz 10 minut? Zajrzyj tutaj</h3>
         <ol class="links">
-          <li><a href="https://github.com/boromat/polanon/blob/main/benchmarks/README.md" target="_blank" rel="noopener">Benchmark polanon</a><span>Porównanie z&nbsp;Presidio i&nbsp;opis tego, czego test nie dowodzi.</span></li>
+          <li><a href="https://github.com/boromat/polanon/blob/main/benchmarks/README.md" target="_blank" rel="noopener">Benchmark PolAnon</a><span>Porównanie z&nbsp;Presidio i&nbsp;opis tego, czego test nie dowodzi.</span></li>
           <li><a href="https://github.com/boromat/polgate/blob/main/evals/README.md" target="_blank" rel="noopener">Test wycieków PolGate</a><span>27 napisanych przeze mnie rozmów: do dostawcy nie dotarła żadna ze 125 chronionych wartości.</span></li>
           <li><a href="https://github.com/boromat/polcrm/blob/main/ai_assistant.py" target="_blank" rel="noopener">Asystent AI w&nbsp;PolCRM</a><span>12 narzędzi w&nbsp;JSON Schema i&nbsp;testy, które nie potrzebują API.</span></li>
-          <li><a href="https://github.com/boromat/polsales/blob/main/evals/README.md" target="_blank" rel="noopener">Ewaluacja asystenta PolSales</a><span>18 pytań sprawdzanych zapytaniem SQL i&nbsp;pułapki z&nbsp;wstrzykniętym poleceniem.</span></li>
+          <li><a href="https://github.com/boromat/polsales/blob/main/evals/README.md" target="_blank" rel="noopener">Ewaluacja asystenta PolSales</a><span>18 pytań sprawdzanych zapytaniem SQL i&nbsp;pułapki ze wstrzykniętym poleceniem.</span></li>
           <li><a href="https://github.com/boromat/polcv/blob/main/evals/README.md" target="_blank" rel="noopener">Ewaluacje PolCV</a><span>Jak mierzę jakość odpowiedzi modelu, koszt i&nbsp;czas.</span></li>
         </ol>
       </div>
