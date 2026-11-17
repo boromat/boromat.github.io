@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-qOhFsq0QMV2REqNwk5hGH5bZE9SkX6gt6yeyKdYPv+U='; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <script>document.documentElement.classList.add("js")</script>
+  <title>ChatGPT, Claude i RODO: jak nie wysyłać modelowi danych klientów · Mateusz Borowy</title>
+  <meta name="description" content="Imiona, PESEL, NIP i numery kont klientów nie muszą trafiać do ChatGPT ani Claude. Model dostaje tokeny, a Ty odpowiedź z prawdziwymi danymi: w przeglądarce, w bramce w Dockerze albo w Pythonie.">
+  <meta name="author" content="Mateusz Borowy">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+  <link rel="canonical" href="https://boromat.github.io/artykuly/chatgpt-claude-rodo/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="pl_PL">
+  <meta property="og:site_name" content="Mateusz Borowy · Projekty">
+  <meta property="og:title" content="ChatGPT, Claude i RODO: jak nie wysyłać modelowi danych klientów">
+  <meta property="og:description" content="Model dostaje tokeny, a Ty odpowiedź z prawdziwymi danymi. Polskie imiona w każdym przypadku, PESEL, NIP i IBAN z sumą kontrolną.">
+  <meta property="og:url" content="https://boromat.github.io/artykuly/chatgpt-claude-rodo/">
+  <meta property="og:image" content="https://boromat.github.io/assets/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Napis „Narzędzia AI, które nie wysyłają Twoich danych” i tokeny OSOBA_1, PESEL_1, IBAN_1.">
+  <meta property="article:published_time" content="2026-11-17">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ChatGPT, Claude i RODO: jak nie wysyłać modelowi danych klientów">
+  <meta name="twitter:description" content="Model dostaje tokeny, a Ty odpowiedź z prawdziwymi danymi.">
+  <meta name="twitter:image" content="https://boromat.github.io/assets/og.png">
+
+  <link rel="icon" href="../../favicon.ico" sizes="32x32">
+  <link rel="icon" href="../../assets/ikona.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+  <link rel="manifest" href="../../site.webmanifest">
+  <link rel="stylesheet" href="../../style.css">
+  <script src="../../script.js" defer></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "ChatGPT, Claude i RODO: jak nie wysyłać modelowi danych klientów",
+    "description": "Maskowanie odwracalne danych osobowych przed wysłaniem tekstu do modelu AI: polskie imiona w każdym przypadku, PESEL, NIP i IBAN, w przeglądarce, w bramce w Dockerze albo w Pythonie.",
+    "inLanguage": "pl",
+    "datePublished": "2026-11-17",
+    "author": { "@type": "Person", "name": "Mateusz Borowy", "url": "https://boromat.github.io/" },
+    "mainEntityOfPage": "https://boromat.github.io/artykuly/chatgpt-claude-rodo/",
+    "image": "https://boromat.github.io/assets/og.png"
+  }
+  </script>
+</head>
+<body>
+
+<a class="skip-link" href="#tresc">Przejdź do treści</a>
+
+<header class="nav" id="top">
+  <div class="nav-inner">
+    <a class="nav-brand" href="../../">Mateusz Borowy</a>
+    <div class="nav-end">
+      <nav class="nav-links" id="nav-links" aria-label="Sekcje strony">
+        <a href="../../#jak-to-dziala">Jak to działa</a>
+        <a href="../../demo/">Wypróbuj</a>
+        <a href="../../#projekty">Projekty</a>
+        <a href="../../#rekruter">Dla rekrutera</a>
+        <a href="../../#kontakt">Kontakt</a>
+      </nav>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links">
+        <span class="sr-only">Menu</span>
+        <span class="bar bar-top" aria-hidden="true"></span><span class="bar bar-bottom" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="tresc" tabindex="-1">
+<article class="wrap article" aria-labelledby="article-title">
+
+  <header class="article-head">
+    <p class="eyebrow">PolAnon · artykuł</p>
+    <h1 class="hero-title" id="article-title">ChatGPT, Claude i&nbsp;RODO: jak nie wysyłać modelowi danych klientów</h1>
+    <p class="lead">Imię klienta, PESEL i&nbsp;numer konta lądują w&nbsp;czacie z&nbsp;AI, bo tak jest szybciej. Da się inaczej: model dostaje tokeny, a&nbsp;Ty odpowiedź z&nbsp;prawdziwymi danymi.</p>
+    <p class="article-meta"><time datetime="2026-11-17">17 listopada 2026</time> · ok. 5&nbsp;minut czytania</p>
+  </header>
+
+  <div class="article-body">
+
+    <aside class="box" aria-labelledby="tldr-title">
+      <h2 class="box-title" id="tldr-title">W&nbsp;skrócie</h2>
+      <ul>
+        <li>Model nie potrzebuje prawdziwych danych klienta, żeby napisać odpowiedź. Wystarczy mu wiedza, że chodzi o&nbsp;osobę, PESEL albo konto.</li>
+        <li>PolAnon zamienia dane na tokeny przed wysłaniem i&nbsp;przywraca je w&nbsp;odpowiedzi. Tabela tokenów zostaje u&nbsp;Ciebie.</li>
+        <li>Dla RODO to pseudonimizacja: zmniejsza to, co wychodzi z&nbsp;firmy, ale nie zastępuje podstawy prawnej ani umowy z&nbsp;dostawcą.</li>
+        <li>Działa jako firmowy czat PolGate, w&nbsp;przeglądarce bez instalacji, jako bramka w&nbsp;Dockerze dla gotowych narzędzi i&nbsp;jako biblioteka Pythona.</li>
+      </ul>
+    </aside>
+
+    <h2 id="problem">Gdzie jest problem</h2>
+    <p>Wystarczy jedna prośba: „przygotuj odpowiedź na reklamację Jana Kowalskiego, PESEL 50810112354, konto PL61 1090 1014 0000 0712 1981 2874”. Dane osobowe klienta właśnie trafiły do dostawcy modelu, często na serwery poza Europejskim Obszarem Gospodarczym.</p>
+    <p>To samo dzieje się bez udziału człowieka. Asystent w&nbsp;n8n wysyła do modelu treść maili, firmowy czat w&nbsp;Open WebUI albo LibreChat przekazuje całe rozmowy, a&nbsp;Claude Code czyta pliki z&nbsp;projektu, także te z&nbsp;danymi klientów.</p>
+    <p>A&nbsp;model tych danych nie potrzebuje. Żeby odpisać na reklamację, wystarczy mu wiedza, że chodzi o&nbsp;osobę, jej PESEL i&nbsp;numer konta.</p>
+
+    <h2 id="maskowanie">Maskowanie odwracalne</h2>
+    <p>PolAnon zamienia dane osobowe na tokeny, zanim tekst wyjdzie do modelu, a&nbsp;w&nbsp;odpowiedzi zamienia tokeny z&nbsp;powrotem na prawdziwe wartości:</p>
+    <ol class="exchange">
+      <li><span class="exchange-step"><span class="n" aria-hidden="true">1</span>Ty piszesz</span>Odpisz <mark>Janowi Kowalskiemu</mark>, PESEL <mark>50810112354</mark>, tel. <mark>512 345 678</mark>, że korekta jest gotowa.</li>
+      <li class="exchange-model"><span class="exchange-step"><span class="n" aria-hidden="true">2</span>Model dostaje</span>Odpisz <span class="tok">&lt;OSOBA_1&gt;</span>, PESEL <span class="tok">&lt;PESEL_1&gt;</span>, tel. <span class="tok">&lt;TELEFON_1&gt;</span>, że korekta jest gotowa.</li>
+      <li class="exchange-model"><span class="exchange-step"><span class="n" aria-hidden="true">3</span>Model odpowiada</span>Szanowny Panie <span class="tok">&lt;OSOBA_1:wołacz&gt;</span>, korekta jest gotowa.</li>
+      <li><span class="exchange-step"><span class="n" aria-hidden="true">4</span>Ty widzisz</span>Szanowny Panie <mark>Janie Kowalski</mark>, korekta jest gotowa.</li>
+    </ol>
+    <p>Tabela, która zamienia <code>&lt;OSOBA_1&gt;</code> z&nbsp;powrotem na Jana Kowalskiego, nigdy nie trafia do modelu. Ten sam klient ma ten sam token przez całą rozmowę, więc model może się do niego odwoływać tyle razy, ile chce. Gdy zapisze token z&nbsp;przypadkiem, jak tu z&nbsp;wołaczem, PolAnon wstawi imię i&nbsp;nazwisko w&nbsp;tej formie.</p>
+
+    <h2 id="rodo">Co na to RODO</h2>
+    <ol class="points">
+      <li><strong>To pseudonimizacja, a&nbsp;nie anonimizacja.</strong> Kto ma tabelę tokenów, może przywrócić dane, więc według art.&nbsp;4 pkt&nbsp;5 RODO nadal są to dane osobowe. Zmienia się to, co wychodzi z&nbsp;firmy: do dostawcy modelu trafia tekst bez imion, numerów i&nbsp;adresów klientów.</li>
+      <li><strong>RODO samo ją wymienia.</strong> Pseudonimizacja jest przykładem środka ochrony przy projektowaniu przetwarzania (art.&nbsp;25 ust.&nbsp;1) i&nbsp;przy jego bezpieczeństwie (art.&nbsp;32 ust.&nbsp;1 lit.&nbsp;a).</li>
+      <li><strong>Nie zastępuje reszty.</strong> Podstawa prawna, umowa powierzenia z&nbsp;dostawcą modelu i&nbsp;ocena ryzyka dalej są potrzebne. O&nbsp;nich decyduje Twój inspektor ochrony danych albo prawnik.</li>
+    </ol>
+    <p class="article-note">Ten tekst opisuje narzędzie i&nbsp;nie jest poradą prawną.</p>
+
+    <h2 id="polskie-dane">Dlaczego polskie dane są trudniejsze</h2>
+    <p>Większość narzędzi do maskowania powstaje z&nbsp;myślą o&nbsp;angielskim. Polskie dane mają trzy cechy, z&nbsp;którymi takie narzędzia radzą sobie słabo:</p>
+    <div class="cards">
+      <section class="card" aria-labelledby="card-odmiana">
+        <h3 id="card-odmiana">Odmiana</h3>
+        <p>„Janowi Kowalskiemu”, „z&nbsp;panią Anną Nowak”. Imiona rozpoznawane w&nbsp;każdym przypadku, także bez modelu językowego.</p>
+      </section>
+      <section class="card" aria-labelledby="card-sumy">
+        <h3 id="card-sumy">Sumy kontrolne</h3>
+        <p>PESEL, NIP, REGON, IBAN, dowód osobisty. Suma kontrolna odróżnia PESEL od numeru zamówienia.</p>
+      </section>
+      <section class="card" aria-labelledby="card-zapisy">
+        <h3 id="card-zapisy">Polskie zapisy</h3>
+        <p>Telefony z&nbsp;+48 i&nbsp;bez, adresy z&nbsp;„ul.”, „al.” i&nbsp;„os.”, kody pocztowe i&nbsp;ulice z&nbsp;rejestru TERYT.</p>
+      </section>
+    </div>
+
+    <h2 id="jak-zaczac">Jak zacząć</h2>
+    <p>Są cztery drogi, zależnie od tego, kto i&nbsp;jak korzysta z&nbsp;AI.</p>
+
+    <h3 id="polgate"><span class="n" aria-hidden="true">1</span>Cała firma: czat PolGate na własnym serwerze</h3>
+    <p>Jeśli pracownicy piszą z&nbsp;ChatGPT albo Claude na co dzień, daj im firmowy czat, który maskuje dane sam. <a href="https://github.com/boromat/polgate/blob/main/README.pl.md" target="_blank" rel="noopener">PolGate</a> wygląda i&nbsp;działa jak zwykły czat z&nbsp;modelami GPT i&nbsp;Claude. Można w&nbsp;nim wklejać prawdziwe dokumenty, a&nbsp;zanim wiadomość wyjdzie z&nbsp;firmy, dane osobowe zamieniają się w&nbsp;tokeny. Podgląd „Co zobaczył model” pokazuje, co dokładnie dostał dostawca.</p>
+    <div class="code">
+      <div class="code-head"><span>Terminal</span><button type="button" class="copy" data-copy="docker run -d --name polgate -p 8000:8000 -v polgate-data:/data ghcr.io/boromat/polgate">Kopiuj<span class="sr-only"> polecenie</span></button></div>
+<pre><code>docker run -d --name polgate -p 8000:8000 \
+    -v polgate-data:/data ghcr.io/boromat/polgate</code></pre>
+    </div>
+    <p>Potem otwierasz <code>http://localhost:8000</code>, logujesz się jako administrator i&nbsp;dodajesz klucz dostawcy modelu. Hasło administratora PolGate tworzy sam przy pierwszym starcie, a&nbsp;pokazuje je polecenie <code>docker exec polgate cat /data/initial-admin-password</code>. W&nbsp;<a href="https://github.com/boromat/polgate/blob/main/evals/README.md" target="_blank" rel="noopener">teście wycieków</a> na 27 rozmowach do dostawcy nie dotarła żadna ze 125 chronionych wartości.</p>
+
+    <h3 id="przegladarka"><span class="n" aria-hidden="true">2</span>Jeden tekst, bez instalacji: demo w&nbsp;przeglądarce</h3>
+    <p>Jeśli chcesz tylko bezpiecznie wysłać jeden tekst do ChatGPT albo Claude na ich stronach, użyj <a href="../../demo/">demo PolAnon</a>:</p>
+    <ol class="points">
+      <li>Wklej tekst do demo. Poniżej zobaczysz jego wersję, w&nbsp;której dane są zamienione na tokeny.</li>
+      <li>Skopiuj tę wersję i&nbsp;wyślij ją w&nbsp;czacie. Model nie zobaczy imion ani numerów.</li>
+      <li>Odpowiedź z&nbsp;czatu wklej z&nbsp;powrotem do demo. Tokeny zamienią się w&nbsp;prawdziwe dane.</li>
+    </ol>
+    <p>Demo działa w&nbsp;Twojej przeglądarce i&nbsp;niczego nie wysyła.</p>
+
+    <h3 id="bramka"><span class="n" aria-hidden="true">3</span>Gotowe narzędzia: bramka w&nbsp;Dockerze</h3>
+    <p>Jeśli z&nbsp;modelem rozmawiają narzędzia, takie jak n8n, Open WebUI, LibreChat czy Claude Code, bramka PolAnon staje między nimi a&nbsp;dostawcą modelu i&nbsp;maskuje każde wywołanie, zanim wyjdzie. Niczego nie trzeba programować:</p>
+    <div class="code">
+      <div class="code-head"><span>Terminal</span><button type="button" class="copy" data-copy="export POLANON_UPSTREAM_KEY=sk-...&#10;export POLANON_GATEWAY_KEY=$(openssl rand -hex 16)&#10;docker run --rm -p 127.0.0.1:8787:8787 \&#10;    -e POLANON_UPSTREAM_KEY -e POLANON_GATEWAY_KEY \&#10;    ghcr.io/boromat/polanon-gateway:0.3 \&#10;    --upstream https://api.openai.com/v1">Kopiuj<span class="sr-only"> polecenia</span></button></div>
+<pre><code># klucz dostawcy modelu i klucz dla Twoich narzędzi
+export POLANON_UPSTREAM_KEY=sk-...
+export POLANON_GATEWAY_KEY=$(openssl rand -hex 16)
+
+docker run --rm -p 127.0.0.1:8787:8787 \
+    -e POLANON_UPSTREAM_KEY -e POLANON_GATEWAY_KEY \
+    ghcr.io/boromat/polanon-gateway:0.3 \
+    --upstream https://api.openai.com/v1</code></pre>
+    </div>
+    <p>W&nbsp;narzędziu ustawiasz adres <code>http://127.0.0.1:8787/v1</code>, a&nbsp;jako klucz API wartość <code>POLANON_GATEWAY_KEY</code>. Tak działa każde narzędzie, które łączy się przez API OpenAI albo Anthropic: n8n, Open WebUI, LibreChat, Claude Code. Dla Claude Code uruchamiasz drugą bramkę z&nbsp;<code>--upstream https://api.anthropic.com/v1</code> i&nbsp;ustawiasz <code>ANTHROPIC_BASE_URL</code>.</p>
+    <p>Bramka działa na Twoim komputerze albo serwerze. Tabela tokenów nie wychodzi poza nią, a&nbsp;odpowiedź wraca do narzędzia już z&nbsp;prawdziwymi danymi, także gdy model odpowiada strumieniowo.</p>
+
+    <h3 id="python"><span class="n" aria-hidden="true">4</span>Własny kod: biblioteka Pythona</h3>
+    <p>Rdzeń PolAnon nie ma żadnych zależności poza samym Pythonem:</p>
+    <div class="code">
+      <div class="code-head"><span>Terminal</span><button type="button" class="copy" data-copy="pip install polanon">Kopiuj<span class="sr-only"> polecenie</span></button></div>
+<pre><code>pip install polanon</code></pre>
+    </div>
+    <div class="code">
+      <div class="code-head"><span>Python</span></div>
+<pre><code>from polanon import Anonymizer, default_guards
+
+anonymizer = Anonymizer(default_guards(with_ner=False))
+result = anonymizer.anonymize_sync(
+    "Proszę o korektę faktury dla Jana Kowalskiego, PESEL 50810112354."
+)
+print(result.anonymized)
+# Proszę o korektę faktury dla &lt;OSOBA_1&gt;, PESEL &lt;PESEL_1&gt;.
+
+answer = "Korekta dla &lt;OSOBA_1&gt; jest gotowa."  # tak odpowiedział model
+print(Anonymizer.restore(answer, result.mapping))
+# Korekta dla Jana Kowalskiego jest gotowa.</code></pre>
+    </div>
+    <p>Z&nbsp;polskim modelem spaCy (<code>pl_core_news_md</code>) PolAnon rozpoznaje też miejsca, firmy i&nbsp;imiona spoza swoich list.</p>
+
+    <h2 id="wyniki">Ile tego łapie</h2>
+    <p>Pomiar na danych, na których PolAnon nie był strojony, z&nbsp;Microsoft Presidio jako punktem odniesienia. Oba narzędzia mają ten sam polski model spaCy.</p>
+    <figure class="cmp" aria-labelledby="cmp-caption">
+      <div class="cmp-group">
+        <p class="cmp-title">Wartości zamaskowane w&nbsp;całości <span>więcej znaczy lepiej</span></p>
+        <div class="cmp-line"><span class="cmp-name">PolAnon</span><span class="cmp-track"><span class="cmp-fill is-ours w71"></span></span><b>71%</b></div>
+        <div class="cmp-line"><span class="cmp-name">Presidio</span><span class="cmp-track"><span class="cmp-fill w66"></span></span><b>66%</b></div>
+      </div>
+      <div class="cmp-group">
+        <p class="cmp-title">Fałszywe alarmy <span>mniej znaczy lepiej</span></p>
+        <div class="cmp-line"><span class="cmp-name">PolAnon</span><span class="cmp-track"><span class="cmp-fill is-ours w16"></span></span><b>435</b></div>
+        <div class="cmp-line"><span class="cmp-name">Presidio</span><span class="cmp-track"><span class="cmp-fill w100"></span></span><b>2641</b></div>
+      </div>
+      <div class="cmp-group">
+        <p class="cmp-title">Osoby w&nbsp;prawdziwych polskich tekstach <span>więcej znaczy lepiej</span></p>
+        <div class="cmp-line"><span class="cmp-name">PolAnon</span><span class="cmp-track"><span class="cmp-fill is-ours w90"></span></span><b>90%</b></div>
+        <div class="cmp-line"><span class="cmp-name">Presidio</span><span class="cmp-track"><span class="cmp-fill w90"></span></span><b>90%</b></div>
+      </div>
+      <figcaption id="cmp-caption">Pierwsze dwa wykresy: 1000 polskich tekstów ze zbioru OpenPII (ai4privacy), 5255 wartości, których przy pracy nad PolAnonem nikt nie oglądał. Fałszywy alarm to zamaskowane słowo, które nie jest daną osobową. Trzeci: 949 osób w&nbsp;korpusie KPWr (CLARIN-PL).</figcaption>
+    </figure>
+    <p>Żadne narzędzie nie łapie wszystkiego. Najczęściej przechodzą telefony w&nbsp;nietypowych zapisach, losowe kody bez etykiety i&nbsp;rzadkie nazwy, gdy nie ma modelu spaCy. Traktuj maskowanie jako zmniejszenie ryzyka, a&nbsp;nie gwarancję, i&nbsp;sprawdź je na własnych tekstach przed wdrożeniem. Skrypty pomiaru i&nbsp;wyniki są <a href="https://github.com/boromat/polanon/blob/main/benchmarks/README.md#on-data-polanon-was-never-tuned-on" target="_blank" rel="noopener">w&nbsp;repozytorium</a>, więc każdy może je powtórzyć.</p>
+
+    <h2 id="pytania">Częste pytania</h2>
+    <div class="faq">
+      <details>
+        <summary>Czy dane wychodzą z&nbsp;mojego komputera?</summary>
+        <p>Maskowanie dzieje się u&nbsp;Ciebie: w&nbsp;PolGate na firmowym serwerze, w&nbsp;przeglądarce, w&nbsp;bramce na Twoim komputerze albo w&nbsp;Twoim kodzie. Do dostawcy modelu trafia tekst z&nbsp;tokenami. Tabela, która zamienia je z&nbsp;powrotem, zostaje u&nbsp;Ciebie.</p>
+      </details>
+      <details>
+        <summary>Czy model rozumie tekst z&nbsp;tokenami?</summary>
+        <p>Tak, bo token mówi, czym jest wartość: <code>&lt;OSOBA_1&gt;</code>, <code>&lt;PESEL_1&gt;</code>, <code>&lt;IBAN_1&gt;</code>. Ten sam klient ma ten sam token przez całą rozmowę. Zwykłych słów PolAnon zakrywa niewiele, więc reszta tekstu zostaje czytelna.</p>
+      </details>
+      <details>
+        <summary>Czy to działa z&nbsp;ChatGPT na chatgpt.com?</summary>
+        <p>Nie bezpośrednio: strona ChatGPT wysyła tekst prosto do OpenAI. Pojedynczy tekst możesz przepuścić przez <a href="../../demo/">demo</a>, tak jak opisuje to droga&nbsp;2. Dla całego zespołu lepszy jest <a href="#polgate">PolGate</a>: firmowy czat, który maskuje dane sam.</p>
+      </details>
+      <details>
+        <summary>Ile to kosztuje?</summary>
+        <p>Nic. PolAnon i&nbsp;PolGate są otwartym oprogramowaniem na licencji MIT. Płacisz tylko dostawcy modelu, tak jak dotąd.</p>
+      </details>
+    </div>
+
+    <aside class="article-cta" aria-label="Wypróbuj PolAnon">
+      <p class="article-cta-title">Zobacz, co zobaczy model.</p>
+      <p>Demo działa w&nbsp;Twojej przeglądarce: nic nie jest wysyłane.</p>
+      <div class="cta-row">
+        <a class="btn" href="../../demo/">Wypróbuj w&nbsp;przeglądarce</a>
+        <a class="more" href="https://github.com/boromat/polgate/blob/main/README.pl.md" target="_blank" rel="noopener">PolGate dla firm</a>
+      </div>
+      <p class="article-note">PolAnon i&nbsp;PolGate są darmowe, na licencji MIT. Dane w&nbsp;przykładach są fikcyjne.</p>
+    </aside>
+
+  </div>
+</article>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <p>© 2026 Mateusz Borowy. Bez ciasteczek, analityki i&nbsp;zewnętrznych skryptów.</p>
+    <p>Dane w&nbsp;przykładach są fikcyjne.</p>
+  </div>
+</footer>
+<p class="sr-only" id="status" role="status" aria-live="polite"></p>
+</body>
+</html>
