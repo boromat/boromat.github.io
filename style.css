@@ -817,5 +817,5 @@ html:not(.js) #try-state, html:not(.js) .needs-js { display: none; }
 .article-body .uses-list h3 { margin: 2px 0 4px; font-family: var(--font-display); font-size: 17px; line-height: 1.3; letter-spacing: -0.01em; }
 .article-body .uses-list p { margin: 0; font-size: 14.5px; line-height: 1.55; color: var(--text-2); text-align: left; }
 @media (max-width: 680px) {
-  .article-body .uses-list { grid-template-columns: minmax(0, 1fr); }
+  .article-body .uses-list { grid-template-columns: minmax(0, 1fr); grid-auto-rows: auto; }
 }
