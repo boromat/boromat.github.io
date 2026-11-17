@@ -764,7 +764,6 @@ html:not(.js) #try-state, html:not(.js) .needs-js { display: none; }
   font-family: var(--font); font-size: 12px; font-weight: 600; letter-spacing: 0; white-space: nowrap;
   color: var(--token-text); background: var(--token-bg);
 }
-.article-body .uses .card p code { font-size: .9em; }
 
 /* „Co maskuje” na stronie PolAnon: kafelki różnej wielkości */
 .bento {
@@ -799,4 +798,24 @@ html:not(.js) #try-state, html:not(.js) .needs-js { display: none; }
 @media (max-width: 680px) {
   .bento { grid-template-columns: minmax(0, 1fr); grid-template-areas: "names" "check" "contact" "secret" "firms" "web"; }
   .article-body .tile h3.big { white-space: normal; }
+}
+
+/* „Gdzie się sprawdza” na stronie PolAnon: lista z ikonami w dwóch kolumnach */
+.article-body .uses-list {
+  list-style: none; margin: 1.2em 0 1.4em; padding: 0;
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 36px;
+  border-bottom: 1px solid var(--line);
+}
+.article-body .uses-list li {
+  display: grid; grid-template-columns: 44px minmax(0, 1fr); column-gap: 14px; align-items: start;
+  margin: 0; padding: 18px 0; border-top: 1px solid var(--line);
+}
+.article-body .uses-list .use-icon {
+  display: grid; place-items: center; width: 44px; height: 44px; border-radius: 12px;
+  color: var(--link); background: var(--token-bg);
+}
+.article-body .uses-list h3 { margin: 2px 0 4px; font-family: var(--font-display); font-size: 17px; line-height: 1.3; letter-spacing: -0.01em; }
+.article-body .uses-list p { margin: 0; font-size: 14.5px; line-height: 1.55; color: var(--text-2); text-align: left; }
+@media (max-width: 680px) {
+  .article-body .uses-list { grid-template-columns: minmax(0, 1fr); }
 }
