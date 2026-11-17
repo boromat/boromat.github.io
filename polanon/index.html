@@ -112,36 +112,41 @@
     <p>Tabela, która zamienia tokeny z&nbsp;powrotem na dane, nigdy nie opuszcza Twojego komputera ani serwera. Ta sama wartość ma ten sam token przez całą rozmowę, a&nbsp;gdy model poprosi o&nbsp;inny przypadek, PolAnon odmieni imię i&nbsp;nazwisko.</p>
 
     <h2 id="co-maskuje">Co maskuje</h2>
-    <div class="cards">
-      <section class="card" aria-labelledby="c-numery">
-        <svg class="card-icon" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="M6.5 16c.6-1.3 1.5-2 2.5-2s1.9.7 2.5 2M14 10h4M14 13h3"/></svg>
-        <h3 id="c-numery">Numery z&nbsp;sumą kontrolną</h3>
-        <p>PESEL, NIP, REGON, dowód osobisty, IBAN i&nbsp;karty płatnicze, sprawdzane sumą kontrolną. KRS i&nbsp;paszport obok etykiety.</p>
+    <div class="bento">
+      <section class="tile tile-names" aria-labelledby="t-osoby">
+        <svg class="tile-icon" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c1.2-3.6 3.8-5.5 7-5.5s5.8 1.9 7 5.5"/></svg>
+        <h3 id="t-osoby">Polskie imiona w&nbsp;każdym przypadku</h3>
+        <p>Każda forma jest maskowana, także pisana małymi literami i&nbsp;bez ogonków, bez żadnego modelu językowego.</p>
+        <ul class="forms"><li><span>Jan Kowalski</span><span class="ok"><span aria-hidden="true">✓</span><span class="ok-text"> zamaskowane</span></span></li><li><span>Jana Kowalskiego</span><span class="ok"><span aria-hidden="true">✓</span><span class="ok-text"> zamaskowane</span></span></li><li><span>Janowi Kowalskiemu</span><span class="ok"><span aria-hidden="true">✓</span><span class="ok-text"> zamaskowane</span></span></li><li><span>o&nbsp;Janie Kowalskim</span><span class="ok"><span aria-hidden="true">✓</span><span class="ok-text"> zamaskowane</span></span></li><li><span>z&nbsp;janem kowalskim</span><span class="ok"><span aria-hidden="true">✓</span><span class="ok-text"> zamaskowane</span></span></li></ul>
       </section>
-      <section class="card" aria-labelledby="c-osoby">
-        <svg class="card-icon" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c1.2-3.6 3.8-5.5 7-5.5s5.8 1.9 7 5.5"/></svg>
-        <h3 id="c-osoby">Osoby i&nbsp;firmy</h3>
-        <p>Polskie imiona z&nbsp;nazwiskami w&nbsp;każdym przypadku, także małymi literami i&nbsp;bez ogonków. Firmy po formie prawnej: Sp. z&nbsp;o.o., S.A., GmbH, Ltd.</p>
+      <section class="tile tile-check" aria-labelledby="t-numery">
+        <svg class="tile-icon" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="M6.5 16c.6-1.3 1.5-2 2.5-2s1.9.7 2.5 2M14 10h4M14 13h3"/></svg>
+        <h3 id="t-numery" class="big">PESEL · NIP · REGON · IBAN</h3>
+        <p>Sprawdzane sumą kontrolną, razem z&nbsp;dowodem osobistym i&nbsp;kartami płatniczymi, więc numer zamówienia zostaje numerem. KRS i&nbsp;paszport obok etykiety.</p>
       </section>
-      <section class="card" aria-labelledby="c-kontakt">
-        <svg class="card-icon" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>
-        <h3 id="c-kontakt">Kontakt i&nbsp;adresy</h3>
-        <p>E-maile, telefony polskie i&nbsp;zagraniczne, adresy, kody pocztowe i&nbsp;ulice tak, jak zapisuje je rejestr TERYT.</p>
+      <section class="tile tile-contact" aria-labelledby="t-kontakt">
+        <svg class="tile-icon" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>
+        <h3 id="t-kontakt">Kontakt</h3>
+        <p>E-maile, telefony, adresy i&nbsp;ulice z&nbsp;rejestru TERYT.</p>
+        <div class="chips"><span class="tok">&lt;EMAIL_1&gt;</span><span class="tok">&lt;ADRES_1&gt;</span></div>
       </section>
-      <section class="card" aria-labelledby="c-sieci">
-        <svg class="card-icon" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg>
-        <h3 id="c-sieci">Internet i&nbsp;sprzęt</h3>
-        <p>Adresy IP i&nbsp;MAC, linki do profili w&nbsp;LinkedIn czy GitHub razem z&nbsp;nazwą użytkownika.</p>
+      <section class="tile tile-secret" aria-labelledby="t-sekrety">
+        <svg class="tile-icon" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
+        <h3 id="t-sekrety">Sekrety</h3>
+        <p>Klucze API, tokeny i&nbsp;hasła w&nbsp;plikach i&nbsp;logach.</p>
+        <div class="chips"><span class="tok">&lt;SEKRET_1&gt;</span></div>
       </section>
-      <section class="card" aria-labelledby="c-sekrety">
-        <svg class="card-icon" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
-        <h3 id="c-sekrety">Sekrety</h3>
-        <p>Klucze API, tokeny i&nbsp;hasła, zanim agent wyśle do modelu plik konfiguracyjny albo log.</p>
+      <section class="tile tile-web" aria-labelledby="t-reszta">
+        <svg class="tile-icon" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg>
+        <h3 id="t-reszta">Internet, dokumenty i&nbsp;pojazdy</h3>
+        <p>Adresy IP i&nbsp;MAC, linki do profili, paszporty, prawa jazdy, numery rejestracyjne, VIN, daty urodzenia i&nbsp;numery z&nbsp;zagranicznych faktur.</p>
+        <div class="chips"><span class="tok">&lt;IP_1&gt;</span><span class="tok">&lt;LINK_1&gt;</span><span class="tok">&lt;PRAWO_JAZDY_1&gt;</span></div>
       </section>
-      <section class="card" aria-labelledby="c-inne">
-        <svg class="card-icon" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4M10 12h5M10 16h5"/></svg>
-        <h3 id="c-inne">Reszta</h3>
-        <p>Numery rejestracyjne i&nbsp;VIN, prawa jazdy, daty urodzenia oraz numery z&nbsp;zagranicznych faktur: VAT UE, Bankgiro, sort code.</p>
+      <section class="tile tile-firms" aria-labelledby="t-firmy">
+        <svg class="tile-icon" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16"/><path d="M16 9h2a2 2 0 0 1 2 2v10M8 7h4M8 11h4M8 15h4M3 21h18"/></svg>
+        <h3 id="t-firmy">Firmy i&nbsp;miejsca</h3>
+        <p>Firmy po formie prawnej: Sp. z&nbsp;o.o., S.A., GmbH, Ltd. Z&nbsp;modelem spaCy także bez niej, razem z&nbsp;miejscami.</p>
+        <div class="chips"><span class="tok">&lt;FIRMA_1&gt;</span><span class="tok">&lt;MIEJSCE_1&gt;</span></div>
       </section>
     </div>
     <p>Same reguły nie potrzebują żadnego modelu językowego. Z&nbsp;opcjonalnym polskim modelem spaCy (<code>pl_core_news_md</code>) PolAnon rozpoznaje też miejsca, firmy bez formy prawnej i&nbsp;imiona spoza swoich list.</p>

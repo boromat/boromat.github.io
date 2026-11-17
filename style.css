@@ -765,3 +765,38 @@ html:not(.js) #try-state, html:not(.js) .needs-js { display: none; }
   color: var(--token-text); background: var(--token-bg);
 }
 .article-body .uses .card p code { font-size: .9em; }
+
+/* „Co maskuje” na stronie PolAnon: kafelki różnej wielkości */
+.bento {
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin: 1.3em 0 1.4em;
+  grid-template-areas: "names names check check" "names names contact secret" "web web firms firms";
+}
+.tile {
+  display: flex; flex-direction: column; min-width: 0; padding: 22px 22px 20px; border-radius: 22px;
+  background: var(--bg-alt); border: 1px solid color-mix(in srgb, var(--line) 60%, transparent);
+}
+.tile-names { grid-area: names; background: linear-gradient(160deg, color-mix(in srgb, var(--accent) 20%, var(--bg-alt)), var(--bg-alt) 72%); }
+.tile-check { grid-area: check; }
+.tile-contact { grid-area: contact; }
+.tile-secret { grid-area: secret; }
+.tile-web { grid-area: web; }
+.tile-firms { grid-area: firms; }
+.article-body .tile-icon { display: block; flex: none; margin-bottom: 12px; color: var(--link); }
+.article-body .tile h3 { margin: 0 0 6px; font-family: var(--font-display); font-size: 18px; line-height: 1.3; letter-spacing: -0.01em; }
+.article-body .tile h3.big { font-size: clamp(19px, 2.35vw, 24px); font-weight: 700; letter-spacing: -0.035em; white-space: nowrap; }
+.article-body .tile p { margin: 0; font-size: 14.5px; line-height: 1.55; color: var(--text-2); text-align: left; }
+.article-body .tile .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 16px; }
+.article-body .tile .tok { font-size: 12.5px; }
+.article-body .forms { list-style: none; margin: auto 0 0; padding: 16px 0 0; display: grid; gap: 8px; }
+.article-body .forms li { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin: 0; padding: 10px 14px; border-radius: 12px; font-size: 15px; background: color-mix(in srgb, var(--bg) 60%, transparent); }
+.article-body .forms .ok { flex: none; font-size: 12.5px; font-weight: 600; color: var(--ok); }
+.article-body .forms { container-type: inline-size; }
+.article-body .forms li > span:first-child { min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+@container (max-width: 270px) {
+  .article-body .forms .ok-text { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .article-body .forms .ok { font-size: 15px; }
+}
+@media (max-width: 680px) {
+  .bento { grid-template-columns: minmax(0, 1fr); grid-template-areas: "names" "check" "contact" "secret" "firms" "web"; }
+  .article-body .tile h3.big { white-space: normal; }
+}
