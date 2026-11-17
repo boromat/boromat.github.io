@@ -751,3 +751,17 @@ html:not(.js) #try-state, html:not(.js) .needs-js { display: none; }
     text-align: justify; -webkit-hyphens: auto; hyphens: auto; hyphenate-limit-chars: 7 3 3;
   }
 }
+
+/* strona produktu (polanon/) */
+.article-head .page-cta { justify-content: center; margin-top: 26px; }
+.article-body .page-facts { margin: 0 0 1em; padding: 0; list-style: none; }
+.article-body .page-facts li + li { margin-top: 0; }
+.article-head .page-shot { margin: clamp(36px, 6vw, 56px) auto 0; }
+.article-head .page-shot img { display: block; width: 100%; height: auto; }
+.article-body .card-icon { display: block; margin-bottom: 12px; color: var(--link); }
+.article-body .tag {
+  display: inline-block; margin-left: 4px; padding: 2px 10px; border-radius: 980px;
+  font-family: var(--font); font-size: 12px; font-weight: 600; letter-spacing: 0; white-space: nowrap;
+  color: var(--token-text); background: var(--token-bg);
+}
+.article-body .uses .card p code { font-size: .9em; }

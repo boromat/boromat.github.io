@@ -30,6 +30,10 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://boromat.pl/en/demo/"/>
   </url>
   <url>
+    <loc>https://boromat.pl/polanon/</loc>
+    <lastmod>2026-11-17</lastmod>
+  </url>
+  <url>
     <loc>https://boromat.pl/artykuly/chatgpt-claude-rodo/</loc>
     <lastmod>2026-11-17</lastmod>
   </url>

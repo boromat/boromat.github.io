@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-qOhFsq0QMV2REqNwk5hGH5bZE9SkX6gt6yeyKdYPv+U='; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <script>document.documentElement.classList.add("js")</script>
+  <title>PolAnon: maskowanie polskich danych osobowych dla AI · Mateusz Borowy</title>
+  <meta name="description" content="PolAnon zamienia PESEL, NIP, IBAN, adresy i polskie imiona w każdym przypadku na tokeny, zanim tekst trafi do ChatGPT, Claude albo modelu lokalnego, i przywraca prawdziwe dane w odpowiedzi. Biblioteka Pythona i bramka w Dockerze, MIT.">
+  <meta name="author" content="Mateusz Borowy">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+  <link rel="canonical" href="https://boromat.pl/polanon/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pl_PL">
+  <meta property="og:site_name" content="Mateusz Borowy · Projekty">
+  <meta property="og:title" content="PolAnon: maskowanie polskich danych osobowych dla AI">
+  <meta property="og:description" content="Model dostaje tokeny, a Ty odpowiedź z prawdziwymi danymi. PESEL, NIP i IBAN z sumą kontrolną, polskie imiona w każdym przypadku.">
+  <meta property="og:url" content="https://boromat.pl/polanon/">
+  <meta property="og:image" content="https://boromat.pl/assets/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Napis „Narzędzia AI, które nie wysyłają Twoich danych” i tokeny OSOBA_1, PESEL_1, IBAN_1.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="PolAnon: maskowanie polskich danych osobowych dla AI">
+  <meta name="twitter:description" content="Model dostaje tokeny, a Ty odpowiedź z prawdziwymi danymi.">
+  <meta name="twitter:image" content="https://boromat.pl/assets/og.png">
+
+  <link rel="icon" href="../favicon.ico" sizes="32x32">
+  <link rel="icon" href="../assets/ikona.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+  <link rel="manifest" href="../site.webmanifest">
+  <link rel="stylesheet" href="../style.css">
+  <script src="../script.js" defer></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "PolAnon",
+    "alternateName": "polanon",
+    "url": "https://boromat.pl/polanon/",
+    "description": "Biblioteka Pythona i bramka w Dockerze do odwracalnego maskowania polskich danych osobowych w zapytaniach do modeli językowych.",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Windows, macOS, Linux",
+    "inLanguage": "pl",
+    "license": "https://opensource.org/licenses/MIT",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "PLN" },
+    "author": { "@type": "Person", "name": "Mateusz Borowy", "url": "https://boromat.pl/" },
+    "sameAs": ["https://github.com/boromat/polanon", "https://pypi.org/project/polanon/"]
+  }
+  </script>
+</head>
+<body>
+
+<a class="skip-link" href="#tresc">Przejdź do treści</a>
+
+<header class="nav" id="top">
+  <div class="nav-inner">
+    <a class="nav-brand" href="../">Mateusz Borowy</a>
+    <div class="nav-end">
+      <nav class="nav-links" id="nav-links" aria-label="Sekcje strony">
+        <a href="../#jak-to-dziala">Jak to działa</a>
+        <a href="../demo/">Wypróbuj</a>
+        <a href="../#projekty">Projekty</a>
+        <a href="../#rekruter">Dla rekrutera</a>
+        <a href="../#kontakt">Kontakt</a>
+      </nav>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links">
+        <span class="sr-only">Menu</span>
+        <span class="bar bar-top" aria-hidden="true"></span><span class="bar bar-bottom" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="tresc" tabindex="-1">
+<article class="wrap article" aria-labelledby="page-title">
+
+  <header class="article-head">
+    <p class="eyebrow">Silnik maskowania · dla programistów i&nbsp;integracji</p>
+    <h1 class="hero-title" id="page-title">PolAnon: maskowanie polskich danych osobowych dla AI</h1>
+    <p class="lead">Zamienia PESEL, NIP, IBAN, adresy i&nbsp;polskie imiona w&nbsp;każdym przypadku na tokeny, zanim tekst trafi do modelu, i&nbsp;wstawia prawdziwe dane z&nbsp;powrotem do odpowiedzi.</p>
+    <div class="cta-row page-cta">
+      <a class="btn" href="../demo/">Wypróbuj w&nbsp;przeglądarce</a>
+      <a class="more" href="https://github.com/boromat/polanon" target="_blank" rel="noopener">Zobacz na GitHubie</a>
+    </div>
+    <figure class="page-shot">
+      <img src="../assets/polanon-demo.pl.svg" width="960" height="500" decoding="async" alt="PolAnon w terminalu: maskowanie polskiego tekstu w Pythonie i przywracanie odpowiedzi, bramka w Dockerze przed narzędziem i wyniki wobec Presidio.">
+    </figure>
+  </header>
+
+  <div class="article-body">
+
+    <ul class="facts page-facts" aria-label="PolAnon w liczbach">
+      <li><strong>71%</strong><span>danych zamaskowanych w&nbsp;całości na publicznych polskich tekstach (Presidio: 66%)</span></li>
+      <li><strong>0</strong><span>zależności w&nbsp;rdzeniu, wystarczy sam Python 3.11+</span></li>
+      <li><strong>MIT</strong><span>otwarte oprogramowanie, za darmo</span></li>
+    </ul>
+
+    <h2 id="jak-dziala">Jak to działa</h2>
+    <p>Model nie potrzebuje prawdziwych danych klienta, żeby napisać odpowiedź. Wystarczy mu wiedza, że chodzi o&nbsp;osobę, jej PESEL czy numer telefonu:</p>
+    <ol class="exchange">
+      <li><span class="exchange-step"><span class="n" aria-hidden="true">1</span>Ty piszesz</span>Odpisz <mark>Janowi Kowalskiemu</mark>, PESEL <mark>50810112354</mark>, tel. <mark>512 345 678</mark>, że korekta jest gotowa.</li>
+      <li class="exchange-model"><span class="exchange-step"><span class="n" aria-hidden="true">2</span>Model dostaje</span>Odpisz <span class="tok">&lt;OSOBA_1&gt;</span>, PESEL <span class="tok">&lt;PESEL_1&gt;</span>, tel. <span class="tok">&lt;TELEFON_1&gt;</span>, że korekta jest gotowa.</li>
+      <li class="exchange-model"><span class="exchange-step"><span class="n" aria-hidden="true">3</span>Model odpowiada</span>Szanowny Panie <span class="tok">&lt;OSOBA_1:wołacz&gt;</span>, korekta jest gotowa.</li>
+      <li><span class="exchange-step"><span class="n" aria-hidden="true">4</span>Ty widzisz</span>Szanowny Panie <mark>Janie Kowalski</mark>, korekta jest gotowa.</li>
+    </ol>
+    <p>Tabela, która zamienia tokeny z&nbsp;powrotem na dane, nigdy nie opuszcza Twojego komputera ani serwera. Ten sam klient ma ten sam token przez całą rozmowę, a&nbsp;gdy model poprosi o&nbsp;inny przypadek, PolAnon odmieni imię i&nbsp;nazwisko.</p>
+
+    <h2 id="co-maskuje">Co maskuje</h2>
+    <div class="cards">
+      <section class="card" aria-labelledby="c-numery">
+        <svg class="card-icon" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="M6.5 16c.6-1.3 1.5-2 2.5-2s1.9.7 2.5 2M14 10h4M14 13h3"/></svg>
+        <h3 id="c-numery">Numery z&nbsp;sumą kontrolną</h3>
+        <p>PESEL, NIP, REGON, dowód osobisty, IBAN i&nbsp;karty płatnicze, sprawdzane sumą kontrolną. KRS i&nbsp;paszport obok etykiety.</p>
+      </section>
+      <section class="card" aria-labelledby="c-osoby">
+        <svg class="card-icon" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c1.2-3.6 3.8-5.5 7-5.5s5.8 1.9 7 5.5"/></svg>
+        <h3 id="c-osoby">Osoby i&nbsp;firmy</h3>
+        <p>Polskie imiona z&nbsp;nazwiskami w&nbsp;każdym przypadku, także małymi literami i&nbsp;bez ogonków. Firmy po formie prawnej: Sp. z&nbsp;o.o., S.A., GmbH, Ltd.</p>
+      </section>
+      <section class="card" aria-labelledby="c-kontakt">
+        <svg class="card-icon" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>
+        <h3 id="c-kontakt">Kontakt i&nbsp;adresy</h3>
+        <p>E-maile, telefony polskie i&nbsp;zagraniczne, adresy, kody pocztowe i&nbsp;ulice tak, jak zapisuje je rejestr TERYT.</p>
+      </section>
+      <section class="card" aria-labelledby="c-sieci">
+        <svg class="card-icon" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg>
+        <h3 id="c-sieci">Internet i&nbsp;sprzęt</h3>
+        <p>Adresy IP i&nbsp;MAC, linki do profili w&nbsp;LinkedIn czy GitHub razem z&nbsp;nazwą użytkownika.</p>
+      </section>
+      <section class="card" aria-labelledby="c-sekrety">
+        <svg class="card-icon" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
+        <h3 id="c-sekrety">Sekrety</h3>
+        <p>Klucze API, tokeny i&nbsp;hasła, zanim agent wyśle do modelu plik konfiguracyjny albo log.</p>
+      </section>
+      <section class="card" aria-labelledby="c-inne">
+        <svg class="card-icon" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4M10 12h5M10 16h5"/></svg>
+        <h3 id="c-inne">Reszta</h3>
+        <p>Numery rejestracyjne i&nbsp;VIN, prawa jazdy, daty urodzenia oraz numery z&nbsp;zagranicznych faktur: VAT UE, Bankgiro, sort code.</p>
+      </section>
+    </div>
+    <p>Same reguły nie potrzebują żadnego modelu językowego. Z&nbsp;opcjonalnym polskim modelem spaCy (<code>pl_core_news_md</code>) PolAnon rozpoznaje też miejsca, firmy bez formy prawnej i&nbsp;imiona spoza swoich list.</p>
+
+    <h2 id="jak-zaczac">Jak zacząć</h2>
+
+    <h3 id="przegladarka"><span class="n" aria-hidden="true">1</span>Demo w&nbsp;przeglądarce <span class="tag">bez instalacji</span></h3>
+    <p>Do rozmów z&nbsp;ChatGPT albo Claude na ich stronach. Wklejasz tekst do <a href="../demo/">demo PolAnon</a>, kopiujesz wersję z&nbsp;tokenami do czatu, a&nbsp;odpowiedź wklejasz z&nbsp;powrotem: tokeny wracają jako prawdziwe dane. Demo działa w&nbsp;Twojej przeglądarce i&nbsp;niczego nie wysyła.</p>
+
+    <h3 id="bramka"><span class="n" aria-hidden="true">2</span>Bramka w&nbsp;Dockerze <span class="tag">bez kodu</span></h3>
+    <p>Do gotowych narzędzi, które rozmawiają z&nbsp;modelem: n8n, Open WebUI, LibreChat, Claude Code i&nbsp;każdego innego, które łączy się przez API OpenAI lub Anthropic. Bramka staje między narzędziem a&nbsp;dostawcą modelu i&nbsp;maskuje każde wywołanie, a&nbsp;odpowiedź oddaje z&nbsp;prawdziwymi danymi.</p>
+    <div class="code">
+      <div class="code-head"><span>Terminal</span><button type="button" class="copy" data-copy="export POLANON_UPSTREAM_KEY=sk-...&#10;export POLANON_GATEWAY_KEY=$(openssl rand -hex 16)&#10;docker run --rm -p 127.0.0.1:8787:8787 \&#10;    -e POLANON_UPSTREAM_KEY -e POLANON_GATEWAY_KEY \&#10;    ghcr.io/boromat/polanon-gateway:0.3 \&#10;    --upstream https://api.openai.com/v1">Kopiuj<span class="sr-only"> polecenia</span></button></div>
+<pre><code># klucz dostawcy modelu i klucz dla Twoich narzędzi
+export POLANON_UPSTREAM_KEY=sk-...
+export POLANON_GATEWAY_KEY=$(openssl rand -hex 16)
+
+docker run --rm -p 127.0.0.1:8787:8787 \
+    -e POLANON_UPSTREAM_KEY -e POLANON_GATEWAY_KEY \
+    ghcr.io/boromat/polanon-gateway:0.3 \
+    --upstream https://api.openai.com/v1</code></pre>
+    </div>
+    <p>W&nbsp;narzędziu ustawiasz adres <code>http://127.0.0.1:8787/v1</code>, a&nbsp;jako klucz API wartość <code>POLANON_GATEWAY_KEY</code>.</p>
+
+    <h3 id="python"><span class="n" aria-hidden="true">3</span>Biblioteka Pythona <span class="tag">dla programistów</span></h3>
+    <p>Do własnej aplikacji, agenta albo potoku RAG: maskujesz przed wywołaniem modelu i&nbsp;przywracasz dane w&nbsp;odpowiedzi.</p>
+    <div class="code">
+      <div class="code-head"><span>Terminal</span><button type="button" class="copy" data-copy="pip install polanon">Kopiuj<span class="sr-only"> polecenie</span></button></div>
+<pre><code>pip install polanon</code></pre>
+    </div>
+    <div class="code">
+      <div class="code-head"><span>Python</span></div>
+<pre><code>from polanon import Anonymizer, default_guards
+
+anonymizer = Anonymizer(default_guards(with_ner=False))
+result = anonymizer.anonymize_sync(
+    "Proszę o korektę faktury dla Jana Kowalskiego, PESEL 50810112354."
+)
+print(result.anonymized)
+# Proszę o korektę faktury dla &lt;OSOBA_1&gt;, PESEL &lt;PESEL_1&gt;.
+
+answer = "Korekta dla &lt;OSOBA_1&gt; jest gotowa."  # tak odpowiedział model
+print(Anonymizer.restore(answer, result.mapping))
+# Korekta dla Jana Kowalskiego jest gotowa.</code></pre>
+    </div>
+    <p>Firmie, która potrzebuje po prostu czatu dla zespołu, służy <a href="../#polgate">PolGate</a>: firmowy czat z&nbsp;modelami GPT i&nbsp;Claude, zbudowany na PolAnon.</p>
+
+    <h2 id="gdzie">Gdzie się sprawdza</h2>
+    <div class="cards uses">
+      <section class="card" aria-labelledby="u-czat">
+        <h3 id="u-czat">Czat z&nbsp;modelem</h3>
+        <p>SDK Anthropic, OpenAI albo model lokalny. Odpowiedź wraca z&nbsp;danymi także strumieniowo, gdy token przychodzi pocięty na kawałki.</p>
+      </section>
+      <section class="card" aria-labelledby="u-agenci">
+        <h3 id="u-agenci">Agenci i&nbsp;narzędzia</h3>
+        <p>Wyniki narzędzi w&nbsp;JSON-ie, kod, logi i&nbsp;pliki konfiguracyjne są maskowane wartość po wartości.</p>
+      </section>
+      <section class="card" aria-labelledby="u-dokumenty">
+        <h3 id="u-dokumenty">Dokumenty i&nbsp;maile</h3>
+        <p>Faktury, umowy, CV i&nbsp;korespondencja, także tekst skopiowany z&nbsp;PDF-a albo Worda.</p>
+      </section>
+      <section class="card" aria-labelledby="u-rag">
+        <h3 id="u-rag">RAG i&nbsp;wyszukiwanie</h3>
+        <p>Z&nbsp;tajnym kluczem token jest taki sam w&nbsp;każdym dokumencie i&nbsp;pytaniu, więc wyszukiwanie po zamaskowanym indeksie działa.</p>
+      </section>
+      <section class="card" aria-labelledby="u-haystack">
+        <h3 id="u-haystack">Haystack</h3>
+        <p>Gotowe komponenty do potoków Haystacka 3: maskują dokumenty i&nbsp;pytania, a&nbsp;przywracają odpowiedzi, także strumieniowe.</p>
+      </section>
+      <section class="card" aria-labelledby="u-cli">
+        <h3 id="u-cli">Wiersz poleceń</h3>
+        <p><code>polanon</code> czyta tekst z&nbsp;argumentu, pliku albo wejścia i&nbsp;wypisuje go zamaskowanego, a&nbsp;mapowanie zapisuje osobno.</p>
+      </section>
+    </div>
+
+    <h2 id="wyniki">Ile tego łapie</h2>
+    <p>Pomiar na danych, na których PolAnon nie był strojony, z&nbsp;Microsoft Presidio jako punktem odniesienia. Oba narzędzia mają ten sam polski model spaCy.</p>
+    <figure class="cmp" aria-labelledby="cmp-caption">
+      <div class="cmp-group">
+        <p class="cmp-title">Wartości zamaskowane w&nbsp;całości <span>więcej znaczy lepiej</span></p>
+        <div class="cmp-line"><span class="cmp-name">PolAnon</span><span class="cmp-track"><span class="cmp-fill is-ours w71"></span></span><b>71%</b></div>
+        <div class="cmp-line"><span class="cmp-name">Presidio</span><span class="cmp-track"><span class="cmp-fill w66"></span></span><b>66%</b></div>
+      </div>
+      <div class="cmp-group">
+        <p class="cmp-title">Fałszywe alarmy <span>mniej znaczy lepiej</span></p>
+        <div class="cmp-line"><span class="cmp-name">PolAnon</span><span class="cmp-track"><span class="cmp-fill is-ours w16"></span></span><b>435</b></div>
+        <div class="cmp-line"><span class="cmp-name">Presidio</span><span class="cmp-track"><span class="cmp-fill w100"></span></span><b>2641</b></div>
+      </div>
+      <div class="cmp-group">
+        <p class="cmp-title">Osoby w&nbsp;prawdziwych polskich tekstach <span>więcej znaczy lepiej</span></p>
+        <div class="cmp-line"><span class="cmp-name">PolAnon</span><span class="cmp-track"><span class="cmp-fill is-ours w90"></span></span><b>90%</b></div>
+        <div class="cmp-line"><span class="cmp-name">Presidio</span><span class="cmp-track"><span class="cmp-fill w90"></span></span><b>90%</b></div>
+      </div>
+      <figcaption id="cmp-caption">Pierwsze dwa wykresy: 1000 polskich tekstów ze zbioru OpenPII (ai4privacy), 5255 wartości, których przy pracy nad PolAnonem nikt nie oglądał. Fałszywy alarm to zamaskowane słowo, które nie jest daną osobową. Trzeci: 949 osób w&nbsp;korpusie KPWr (CLARIN-PL). Skrypty i&nbsp;wyniki są <a href="https://github.com/boromat/polanon/blob/main/benchmarks/README.md#on-data-polanon-was-never-tuned-on" target="_blank" rel="noopener">w&nbsp;repozytorium</a>.</figcaption>
+    </figure>
+
+    <h2 id="zanim">Zanim zaczniesz na tym polegać</h2>
+    <p>Maskowanie to pseudonimizacja, a&nbsp;nie anonimizacja w&nbsp;rozumieniu RODO, i&nbsp;żaden detektor nie wyłapuje wszystkiego. Traktuj PolAnon jako zmniejszenie ryzyka, a&nbsp;nie gwarancję, i&nbsp;sprawdź go na własnych tekstach. <a href="https://github.com/boromat/polanon/blob/main/docs/THREAT_MODEL.md" target="_blank" rel="noopener">Model zagrożeń</a> opisuje, co jest objęte ochroną, a&nbsp;co pozostaje zadaniem Twojej aplikacji. Więcej o&nbsp;RODO w&nbsp;artykule <a href="../artykuly/chatgpt-claude-rodo/">ChatGPT, Claude i&nbsp;RODO</a>.</p>
+
+    <h2 id="pytania">Częste pytania</h2>
+    <div class="faq">
+      <details>
+        <summary>Czy PolAnon wysyła gdzieś moje dane?</summary>
+        <p>Nie. PolAnon sam niczego nie wysyła: maskowanie odbywa się na Twoim komputerze albo serwerze. Do dostawcy modelu trafia tylko tekst z&nbsp;tokenami, który wysyła Twoja aplikacja albo bramka, a&nbsp;tabela tokenów zostaje u&nbsp;Ciebie.</p>
+      </details>
+      <details>
+        <summary>Czy potrzebuję modelu językowego?</summary>
+        <p>Nie. Identyfikatory, kontakty, adresy, sekrety i&nbsp;polskie imiona z&nbsp;nazwiskami rozpoznają reguły i&nbsp;listy. Model spaCy jest opcjonalny i&nbsp;dokłada miejsca, firmy bez formy prawnej oraz imiona spoza list.</p>
+      </details>
+      <details>
+        <summary>Czy działa z&nbsp;modelem lokalnym, np. w&nbsp;Ollamie?</summary>
+        <p>Tak. PolAnon maskuje tekst niezależnie od tego, dokąd go potem wyślesz: do OpenAI, Anthropic czy modelu na własnym serwerze. Z&nbsp;modelem lokalnym dane i&nbsp;tak nie wychodzą z&nbsp;firmy, ale maskowanie chroni je w&nbsp;logach i&nbsp;historii rozmów.</p>
+      </details>
+      <details>
+        <summary>Czy poradzi sobie z&nbsp;tekstem skopiowanym z&nbsp;PDF-a albo Worda?</summary>
+        <p>Tak. Litery zapisane jako litera i&nbsp;osobny znak diakrytyczny, spacje niełamiące, półpauzy w&nbsp;numerach i&nbsp;niewidoczne znaki o&nbsp;zerowej szerokości nie ukrywają wartości przed regułami. Samych plików PDF PolAnon nie czyta: dostaje tekst.</p>
+      </details>
+      <details>
+        <summary>Czym różni się od Microsoft Presidio?</summary>
+        <p>Presidio jest ogólne i&nbsp;wielojęzyczne. PolAnon jest pisany pod polskie dane: sprawdza sumy kontrolne PESEL-u, NIP-u i&nbsp;IBAN-u, rozpoznaje imiona w&nbsp;każdym przypadku i&nbsp;przywraca dane w&nbsp;odpowiedzi modelu, także strumieniowej. Na polskich danych maskuje więcej przy sześć razy mniejszej liczbie fałszywych alarmów.</p>
+      </details>
+      <details>
+        <summary>Ile to kosztuje?</summary>
+        <p>Nic. PolAnon jest otwartym oprogramowaniem na licencji MIT, także do użytku komercyjnego.</p>
+      </details>
+    </div>
+
+    <aside class="article-cta" aria-label="Wypróbuj PolAnon">
+      <p class="article-cta-title">Zobacz, co zobaczy model.</p>
+      <p>Demo działa w&nbsp;Twojej przeglądarce: nic nie jest wysyłane.</p>
+      <div class="cta-row">
+        <a class="btn" href="../demo/">Wypróbuj w&nbsp;przeglądarce</a>
+        <a class="more" href="https://pypi.org/project/polanon/" target="_blank" rel="noopener">PolAnon na PyPI</a>
+      </div>
+      <p class="article-note">Dane w&nbsp;przykładach są fikcyjne.</p>
+    </aside>
+
+  </div>
+</article>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <p>© 2026 Mateusz Borowy. Bez ciasteczek, analityki i&nbsp;zewnętrznych skryptów.</p>
+    <p>Dane w&nbsp;przykładach są fikcyjne.</p>
+  </div>
+</footer>
+<p class="sr-only" id="status" role="status" aria-live="polite"></p>
+</body>
+</html>
