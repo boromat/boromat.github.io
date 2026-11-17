@@ -2,35 +2,35 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://boromat.github.io/</loc>
+    <loc>https://boromat.pl/</loc>
     <lastmod>2026-11-15</lastmod>
-    <xhtml:link rel="alternate" hreflang="pl" href="https://boromat.github.io/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://boromat.github.io/en/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://boromat.github.io/en/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://boromat.pl/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boromat.pl/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://boromat.pl/en/"/>
   </url>
   <url>
-    <loc>https://boromat.github.io/en/</loc>
+    <loc>https://boromat.pl/en/</loc>
     <lastmod>2026-11-15</lastmod>
-    <xhtml:link rel="alternate" hreflang="pl" href="https://boromat.github.io/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://boromat.github.io/en/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://boromat.github.io/en/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://boromat.pl/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boromat.pl/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://boromat.pl/en/"/>
   </url>
   <url>
-    <loc>https://boromat.github.io/demo/</loc>
+    <loc>https://boromat.pl/demo/</loc>
     <lastmod>2026-11-15</lastmod>
-    <xhtml:link rel="alternate" hreflang="pl" href="https://boromat.github.io/demo/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://boromat.github.io/en/demo/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://boromat.github.io/en/demo/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://boromat.pl/demo/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boromat.pl/en/demo/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://boromat.pl/en/demo/"/>
   </url>
   <url>
-    <loc>https://boromat.github.io/en/demo/</loc>
+    <loc>https://boromat.pl/en/demo/</loc>
     <lastmod>2026-11-15</lastmod>
-    <xhtml:link rel="alternate" hreflang="pl" href="https://boromat.github.io/demo/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://boromat.github.io/en/demo/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://boromat.github.io/en/demo/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://boromat.pl/demo/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boromat.pl/en/demo/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://boromat.pl/en/demo/"/>
   </url>
   <url>
-    <loc>https://boromat.github.io/artykuly/chatgpt-claude-rodo/</loc>
+    <loc>https://boromat.pl/artykuly/chatgpt-claude-rodo/</loc>
     <lastmod>2026-11-17</lastmod>
   </url>
 </urlset>

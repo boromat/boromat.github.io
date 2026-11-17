@@ -16,7 +16,7 @@ INFO = DEMO / "polanon.json"
 
 
 def fetch(url: str) -> bytes:
-    request = urllib.request.Request(url, headers={"User-Agent": "boromat.github.io demo updater"})
+    request = urllib.request.Request(url, headers={"User-Agent": "boromat.pl demo updater"})
     with urllib.request.urlopen(request, timeout=60) as response:
         return response.read()
 
