@@ -744,3 +744,10 @@ html:not(.js) #try-state, html:not(.js) .needs-js { display: none; }
   .cmp-line { grid-template-columns: 64px minmax(0, 1fr) 46px; gap: 8px; }
   .exchange li { padding: 14px 16px 16px; }
 }
+
+/* tekst artykułu wyrównany do obu krawędzi, z dzieleniem wyrazów; na telefonie do lewej */
+@media (min-width: 681px) {
+  .article-body > p, .article-body .points li, .article-body .box li {
+    text-align: justify; -webkit-hyphens: auto; hyphens: auto; hyphenate-limit-chars: 7 3 3;
+  }
+}
