@@ -803,7 +803,7 @@ html:not(.js) #try-state, html:not(.js) .needs-js { display: none; }
 /* „Gdzie się sprawdza” na stronie PolAnon: lista z ikonami w dwóch kolumnach */
 .article-body .uses-list {
   list-style: none; margin: 1.2em 0 1.4em; padding: 0;
-  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 36px;
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 1fr; column-gap: 36px;
   border-bottom: 1px solid var(--line);
 }
 .article-body .uses-list li {
