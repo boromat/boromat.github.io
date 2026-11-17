@@ -711,7 +711,7 @@ html:not(.js) #try-state, html:not(.js) .needs-js { display: none; }
 .cmp-track { height: 12px; border-radius: 6px; background: var(--bg-alt); overflow: hidden; }
 .cmp-fill { display: block; height: 100%; border-radius: 6px; background: var(--text-2); opacity: .55; }
 .cmp-fill.is-ours { background: var(--accent); opacity: 1; }
-.cmp-fill.w16 { width: 16.5%; }
+.cmp-fill.w12 { width: 11.6%; }
 .cmp-fill.w66 { width: 66%; }
 .cmp-fill.w71 { width: 71%; }
 .cmp-fill.w90 { width: 90%; }

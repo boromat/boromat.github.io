@@ -160,14 +160,14 @@
     <h3 id="bramka"><span class="n" aria-hidden="true">3</span>Gotowe narzędzia: bramka w&nbsp;Dockerze</h3>
     <p>Jeśli z&nbsp;modelem rozmawiają narzędzia, takie jak n8n, Open WebUI, LibreChat czy Claude Code, bramka PolAnon staje między nimi a&nbsp;dostawcą modelu i&nbsp;maskuje każde wywołanie, zanim wyjdzie. Niczego nie trzeba programować:</p>
     <div class="code">
-      <div class="code-head"><span>Terminal</span><button type="button" class="copy" data-copy="export POLANON_UPSTREAM_KEY=sk-...&#10;export POLANON_GATEWAY_KEY=$(openssl rand -hex 16)&#10;docker run --rm -p 127.0.0.1:8787:8787 \&#10;    -e POLANON_UPSTREAM_KEY -e POLANON_GATEWAY_KEY \&#10;    ghcr.io/boromat/polanon-gateway:0.3 \&#10;    --upstream https://api.openai.com/v1">Kopiuj<span class="sr-only"> polecenia</span></button></div>
+      <div class="code-head"><span>Terminal</span><button type="button" class="copy" data-copy="export POLANON_UPSTREAM_KEY=sk-...&#10;export POLANON_GATEWAY_KEY=$(openssl rand -hex 16)&#10;docker run --rm -p 127.0.0.1:8787:8787 \&#10;    -e POLANON_UPSTREAM_KEY -e POLANON_GATEWAY_KEY \&#10;    ghcr.io/boromat/polanon-gateway:0.4 \&#10;    --upstream https://api.openai.com/v1">Kopiuj<span class="sr-only"> polecenia</span></button></div>
 <pre><code># klucz dostawcy modelu i klucz dla Twoich narzędzi
 export POLANON_UPSTREAM_KEY=sk-...
 export POLANON_GATEWAY_KEY=$(openssl rand -hex 16)
 
 docker run --rm -p 127.0.0.1:8787:8787 \
     -e POLANON_UPSTREAM_KEY -e POLANON_GATEWAY_KEY \
-    ghcr.io/boromat/polanon-gateway:0.3 \
+    ghcr.io/boromat/polanon-gateway:0.4 \
     --upstream https://api.openai.com/v1</code></pre>
     </div>
     <p>W&nbsp;narzędziu ustawiasz adres <code>http://127.0.0.1:8787/v1</code>, a&nbsp;jako klucz API wartość <code>POLANON_GATEWAY_KEY</code>. Tak działa każde narzędzie, które łączy się przez API OpenAI albo Anthropic: n8n, Open WebUI, LibreChat, Claude Code. Dla Claude Code uruchamiasz drugą bramkę z&nbsp;<code>--upstream https://api.anthropic.com/v1</code> i&nbsp;ustawiasz <code>ANTHROPIC_BASE_URL</code>.</p>
@@ -206,7 +206,7 @@ print(Anonymizer.restore(answer, result.mapping))
       </div>
       <div class="cmp-group">
         <p class="cmp-title">Fałszywe alarmy <span>mniej znaczy lepiej</span></p>
-        <div class="cmp-line"><span class="cmp-name">PolAnon</span><span class="cmp-track"><span class="cmp-fill is-ours w16"></span></span><b>435</b></div>
+        <div class="cmp-line"><span class="cmp-name">PolAnon</span><span class="cmp-track"><span class="cmp-fill is-ours w12"></span></span><b>306</b></div>
         <div class="cmp-line"><span class="cmp-name">Presidio</span><span class="cmp-track"><span class="cmp-fill w100"></span></span><b>2641</b></div>
       </div>
       <div class="cmp-group">

@@ -159,14 +159,14 @@
     <h3 id="bramka"><span class="n" aria-hidden="true">2</span>Bramka w&nbsp;Dockerze <span class="tag">bez kodu</span></h3>
     <p>Do gotowych narzędzi, które rozmawiają z&nbsp;modelem: n8n, Open WebUI, LibreChat, Claude Code i&nbsp;każdego innego, które łączy się przez API OpenAI lub Anthropic. Bramka staje między narzędziem a&nbsp;dostawcą modelu i&nbsp;maskuje każde wywołanie, a&nbsp;odpowiedź oddaje z&nbsp;prawdziwymi danymi.</p>
     <div class="code">
-      <div class="code-head"><span>Terminal</span><button type="button" class="copy" data-copy="export POLANON_UPSTREAM_KEY=sk-...&#10;export POLANON_GATEWAY_KEY=$(openssl rand -hex 16)&#10;docker run --rm -p 127.0.0.1:8787:8787 \&#10;    -e POLANON_UPSTREAM_KEY -e POLANON_GATEWAY_KEY \&#10;    ghcr.io/boromat/polanon-gateway:0.3 \&#10;    --upstream https://api.openai.com/v1">Kopiuj<span class="sr-only"> polecenia</span></button></div>
+      <div class="code-head"><span>Terminal</span><button type="button" class="copy" data-copy="export POLANON_UPSTREAM_KEY=sk-...&#10;export POLANON_GATEWAY_KEY=$(openssl rand -hex 16)&#10;docker run --rm -p 127.0.0.1:8787:8787 \&#10;    -e POLANON_UPSTREAM_KEY -e POLANON_GATEWAY_KEY \&#10;    ghcr.io/boromat/polanon-gateway:0.4 \&#10;    --upstream https://api.openai.com/v1">Kopiuj<span class="sr-only"> polecenia</span></button></div>
 <pre><code># klucz dostawcy modelu i klucz dla Twoich narzędzi
 export POLANON_UPSTREAM_KEY=sk-...
 export POLANON_GATEWAY_KEY=$(openssl rand -hex 16)
 
 docker run --rm -p 127.0.0.1:8787:8787 \
     -e POLANON_UPSTREAM_KEY -e POLANON_GATEWAY_KEY \
-    ghcr.io/boromat/polanon-gateway:0.3 \
+    ghcr.io/boromat/polanon-gateway:0.4 \
     --upstream https://api.openai.com/v1</code></pre>
     </div>
     <p>W&nbsp;narzędziu ustawiasz adres <code>http://127.0.0.1:8787/v1</code>, a&nbsp;jako klucz API wartość <code>POLANON_GATEWAY_KEY</code>.</p>
@@ -205,7 +205,7 @@ print(Anonymizer.restore(answer, result.mapping))
     </ul>
 
     <h2 id="wyniki">Ile tego łapie</h2>
-    <p>Pomiar na danych, na których PolAnon nie był strojony, z&nbsp;Microsoft Presidio jako punktem odniesienia. Oba narzędzia mają ten sam polski model spaCy.</p>
+    <p>Pomiar na danych, na których PolAnon nie był strojony, z&nbsp;Microsoft Presidio jako punktem odniesienia. Oba narzędzia mają ten sam polski model spaCy. Od wersji 0.4.0 wyniki spaCy sprawdza jeszcze filtr ML PolAnonu: mały model uczenia maszynowego, który odsiewa zwykłe słowa wzięte za nazwy. Fałszywych alarmów jest dzięki niemu prawie o&nbsp;jedną trzecią mniej, a&nbsp;zamaskowanych wartości tyle samo.</p>
     <figure class="cmp" aria-labelledby="cmp-caption">
       <div class="cmp-group">
         <p class="cmp-title">Wartości zamaskowane w&nbsp;całości <span>więcej znaczy lepiej</span></p>
@@ -214,7 +214,7 @@ print(Anonymizer.restore(answer, result.mapping))
       </div>
       <div class="cmp-group">
         <p class="cmp-title">Fałszywe alarmy <span>mniej znaczy lepiej</span></p>
-        <div class="cmp-line"><span class="cmp-name">PolAnon</span><span class="cmp-track"><span class="cmp-fill is-ours w16"></span></span><b>435</b></div>
+        <div class="cmp-line"><span class="cmp-name">PolAnon</span><span class="cmp-track"><span class="cmp-fill is-ours w12"></span></span><b>306</b></div>
         <div class="cmp-line"><span class="cmp-name">Presidio</span><span class="cmp-track"><span class="cmp-fill w100"></span></span><b>2641</b></div>
       </div>
       <div class="cmp-group">
@@ -236,7 +236,11 @@ print(Anonymizer.restore(answer, result.mapping))
       </details>
       <details>
         <summary>Czy potrzebuję modelu językowego?</summary>
-        <p>Nie. Identyfikatory, kontakty, adresy, sekrety i&nbsp;polskie imiona z&nbsp;nazwiskami rozpoznają reguły i&nbsp;listy. Model spaCy jest opcjonalny i&nbsp;dokłada miejsca, firmy bez formy prawnej oraz imiona spoza list.</p>
+        <p>Nie. Identyfikatory, kontakty, adresy, sekrety i&nbsp;polskie imiona z&nbsp;nazwiskami rozpoznają reguły i&nbsp;listy. Model spaCy jest opcjonalny i&nbsp;dokłada miejsca, firmy bez formy prawnej oraz imiona spoza list, a&nbsp;filtr ML PolAnonu odsiewa z&nbsp;jego wyników zwykłe słowa.</p>
+      </details>
+      <details>
+        <summary>Czy PolAnon uczy się na moich danych?</summary>
+        <p>Nie. Filtr ML został wytrenowany raz, na publicznych polskich danych (OpenPII i&nbsp;KPWr), i&nbsp;trafia do paczki jako gotowe wagi. Na Twoich tekstach niczego się nie uczy, niczego nie zapamiętuje i&nbsp;niczego nie wysyła.</p>
       </details>
       <details>
         <summary>Czy działa z&nbsp;modelem lokalnym, np. w&nbsp;Ollamie?</summary>
@@ -248,7 +252,7 @@ print(Anonymizer.restore(answer, result.mapping))
       </details>
       <details>
         <summary>Czym różni się od Microsoft Presidio?</summary>
-        <p>Presidio jest ogólne i&nbsp;wielojęzyczne. PolAnon jest pisany pod polskie dane: sprawdza sumy kontrolne PESEL-u, NIP-u i&nbsp;IBAN-u, rozpoznaje imiona w&nbsp;każdym przypadku i&nbsp;przywraca dane w&nbsp;odpowiedzi modelu, także strumieniowej. Na polskich danych maskuje więcej przy sześć razy mniejszej liczbie fałszywych alarmów.</p>
+        <p>Presidio jest ogólne i&nbsp;wielojęzyczne. PolAnon jest pisany pod polskie dane: sprawdza sumy kontrolne PESEL-u, NIP-u i&nbsp;IBAN-u, rozpoznaje imiona w&nbsp;każdym przypadku i&nbsp;przywraca dane w&nbsp;odpowiedzi modelu, także strumieniowej. Na polskich danych maskuje więcej przy ośmiokrotnie mniejszej liczbie fałszywych alarmów.</p>
       </details>
       <details>
         <summary>Ile to kosztuje?</summary>
