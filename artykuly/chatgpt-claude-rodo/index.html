@@ -109,7 +109,7 @@
       <li class="exchange-model"><span class="exchange-step"><span class="n" aria-hidden="true">3</span>Model odpowiada</span>Szanowny Panie <span class="tok">&lt;OSOBA_1:wołacz&gt;</span>, korekta jest gotowa.</li>
       <li><span class="exchange-step"><span class="n" aria-hidden="true">4</span>Ty widzisz</span>Szanowny Panie <mark>Janie Kowalski</mark>, korekta jest gotowa.</li>
     </ol>
-    <p>Tabela, która zamienia <code>&lt;OSOBA_1&gt;</code> z&nbsp;powrotem na Jana Kowalskiego, nigdy nie trafia do modelu. Ten sam klient ma ten sam token przez całą rozmowę, więc model może się do niego odwoływać tyle razy, ile chce. Gdy zapisze token z&nbsp;przypadkiem, jak tu z&nbsp;wołaczem, PolAnon wstawi imię i&nbsp;nazwisko w&nbsp;tej formie.</p>
+    <p>Tabela, która zamienia <code>&lt;OSOBA_1&gt;</code> z&nbsp;powrotem na Jana Kowalskiego, nigdy nie trafia do modelu. Ta sama wartość ma ten sam token przez całą rozmowę, więc model może się do niej odwoływać tyle razy, ile chce. Gdy zapisze token z&nbsp;przypadkiem, jak tu z&nbsp;wołaczem, PolAnon wstawi imię i&nbsp;nazwisko w&nbsp;tej formie.</p>
 
     <h2 id="rodo">Co na to RODO</h2>
     <ol class="points">
@@ -226,7 +226,7 @@ print(Anonymizer.restore(answer, result.mapping))
       </details>
       <details>
         <summary>Czy model rozumie tekst z&nbsp;tokenami?</summary>
-        <p>Tak, bo token mówi, czym jest wartość: <code>&lt;OSOBA_1&gt;</code>, <code>&lt;PESEL_1&gt;</code>, <code>&lt;IBAN_1&gt;</code>. Ten sam klient ma ten sam token przez całą rozmowę. Zwykłych słów PolAnon zakrywa niewiele, więc reszta tekstu zostaje czytelna.</p>
+        <p>Tak, bo token mówi, czym jest wartość: <code>&lt;OSOBA_1&gt;</code>, <code>&lt;PESEL_1&gt;</code>, <code>&lt;IBAN_1&gt;</code>. Ta sama wartość ma ten sam token przez całą rozmowę. Zwykłych słów PolAnon zakrywa niewiele, więc reszta tekstu zostaje czytelna.</p>
       </details>
       <details>
         <summary>Czy to działa z&nbsp;ChatGPT na chatgpt.com?</summary>
