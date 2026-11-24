@@ -709,7 +709,7 @@ html:not(.js) #try-state, html:not(.js) .needs-js { display: none; }
 .cmp-fill.is-ours { background: var(--accent); opacity: 1; }
 .cmp-fill.w12 { width: 11.6%; }
 .cmp-fill.w66 { width: 66%; }
-.cmp-fill.w71 { width: 71%; }
+.cmp-fill.w72 { width: 72%; }
 .cmp-fill.w90 { width: 90%; }
 .cmp-fill.w100 { width: 100%; }
 .cmp figcaption { margin-top: 18px; font-size: 13px; line-height: 1.55; color: var(--text-2); }

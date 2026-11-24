@@ -141,11 +141,13 @@
     <h3 id="polgate"><span class="n" aria-hidden="true">1</span>Cała firma: czat PolGate na własnym serwerze</h3>
     <p>Jeśli pracownicy piszą z&nbsp;ChatGPT albo Claude na co dzień, daj im firmowy czat, który maskuje dane sam. <a href="https://github.com/boromat/polgate/blob/main/README.pl.md" target="_blank" rel="noopener">PolGate</a> wygląda i&nbsp;działa jak zwykły czat z&nbsp;modelami GPT i&nbsp;Claude. Można w&nbsp;nim wklejać prawdziwe dokumenty, a&nbsp;zanim wiadomość wyjdzie z&nbsp;firmy, dane osobowe zamieniają się w&nbsp;tokeny. Podgląd „Co zobaczył model” pokazuje, co dokładnie dostał dostawca.</p>
     <div class="code">
-      <div class="code-head"><span>Terminal</span><button type="button" class="copy" data-copy="docker run -d --name polgate -p 8000:8000 -v polgate-data:/data ghcr.io/boromat/polgate">Kopiuj<span class="sr-only"> polecenie</span></button></div>
-<pre><code>docker run -d --name polgate -p 8000:8000 \
-    -v polgate-data:/data ghcr.io/boromat/polgate</code></pre>
+      <div class="code-head"><span>Terminal</span><button type="button" class="copy" data-copy="export ADMIN_PASSWORD=$(openssl rand -hex 12)&#10;export LLM_API_KEY=sk-or-...&#10;docker run -d --name polgate -p 127.0.0.1:8000:8000 -v polgate-data:/data -e ADMIN_PASSWORD -e LLM_API_KEY ghcr.io/boromat/polgate:0.4">Kopiuj<span class="sr-only"> polecenie</span></button></div>
+<pre><code>export ADMIN_PASSWORD=$(openssl rand -hex 12)  # pierwsze hasło administratora
+export LLM_API_KEY=sk-or-...                   # klucz dostawcy, domyślnie OpenRouter
+docker run -d --name polgate -p 127.0.0.1:8000:8000 -v polgate-data:/data \
+    -e ADMIN_PASSWORD -e LLM_API_KEY ghcr.io/boromat/polgate:0.4</code></pre>
     </div>
-    <p>Potem otwierasz <code>http://localhost:8000</code>, logujesz się jako administrator i&nbsp;dodajesz klucz dostawcy modelu. Hasło administratora PolGate tworzy sam przy pierwszym starcie, a&nbsp;pokazuje je polecenie <code>docker exec polgate cat /data/initial-admin-password</code>. W&nbsp;<a href="https://github.com/boromat/polgate/blob/main/evals/README.md" target="_blank" rel="noopener">teście wycieków</a> na 27 rozmowach do dostawcy nie dotarła żadna ze 125 chronionych wartości.</p>
+    <p>W&nbsp;miejsce <code>sk-or-...</code> wpisujesz klucz dostawcy modelu. Potem otwierasz <code>http://127.0.0.1:8000</code> i&nbsp;logujesz się jako <code>admin</code> hasłem z&nbsp;pierwszej linijki (pokaże je <code>echo $ADMIN_PASSWORD</code>). Tak uruchomiony czat działa tylko na tym komputerze; żeby korzystał z&nbsp;niego cały zespół, wystaw go przez HTTPS według <a href="https://github.com/boromat/polgate/blob/main/README.pl.md#uruchomienie-ze-źródeł" target="_blank" rel="noopener">instrukcji wdrożenia w&nbsp;firmie</a>. W&nbsp;<a href="https://github.com/boromat/polgate/blob/main/evals/README.md" target="_blank" rel="noopener">teście wycieków</a> na 27 rozmowach do dostawcy nie dotarła żadna ze 125 chronionych wartości.</p>
 
     <h3 id="przegladarka"><span class="n" aria-hidden="true">2</span>Jeden tekst, bez instalacji: demo w&nbsp;przeglądarce</h3>
     <p>Jeśli chcesz tylko bezpiecznie wysłać jeden tekst do ChatGPT albo Claude na ich stronach, użyj <a href="../../demo/">demo PolAnon</a>:</p>
@@ -200,7 +202,7 @@ print(Anonymizer.restore(answer, result.mapping))
     <figure class="cmp" aria-labelledby="cmp-caption">
       <div class="cmp-group">
         <p class="cmp-title">Wartości zamaskowane w&nbsp;całości <span>więcej znaczy lepiej</span></p>
-        <div class="cmp-line"><span class="cmp-name">PolAnon</span><span class="cmp-track"><span class="cmp-fill is-ours w71"></span></span><b>71%</b></div>
+        <div class="cmp-line"><span class="cmp-name">PolAnon</span><span class="cmp-track"><span class="cmp-fill is-ours w72"></span></span><b>72%</b></div>
         <div class="cmp-line"><span class="cmp-name">Presidio</span><span class="cmp-track"><span class="cmp-fill w66"></span></span><b>66%</b></div>
       </div>
       <div class="cmp-group">

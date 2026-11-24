@@ -89,7 +89,7 @@
         "codeRepository": "https://github.com/boromat/polcv",
         "programmingLanguage": "TypeScript",
         "license": "https://opensource.org/licenses/MIT",
-        "description": "Desktop app that tailors a CV to a specific job ad on the Polish job market.",
+        "description": "Local web app that tailors a CV to a specific job ad on the Polish job market.",
         "author": { "@id": "https://boromat.pl/#person" }
       },
       {
@@ -108,7 +108,7 @@
         "codeRepository": "https://github.com/boromat/polcrm",
         "programmingLanguage": "Python",
         "license": "https://opensource.org/licenses/MIT",
-        "description": "CRM, sales pipeline and finances for a small web and SEO agency, with an AI assistant that carries out tasks itself.",
+        "description": "CRM, sales pipeline and finances for a small web and SEO agency, with an AI assistant that creates tasks and notes when asked.",
         "author": { "@id": "https://boromat.pl/#person" }
       }
     ]
@@ -228,7 +228,7 @@
         </picture>
       </figure>
       <ul class="facts reveal">
-        <li><strong>71%</strong><span>of values masked whole on public Polish text (Presidio: 66%)</span></li>
+        <li><strong>72%</strong><span>of values masked whole on public Polish text (Presidio: 66%)</span></li>
         <li><strong>0</strong><span>dependencies in the core: plain Python is enough</span></li>
         <li><strong>7</strong><span>Polish grammatical cases in which it recognizes first names and surnames</span></li>
       </ul>
@@ -257,7 +257,7 @@
       <ul class="facts reveal">
         <li><strong>0 of 125</strong><span>protected values reached the provider in my leak test</span></li>
         <li><strong>60 of 60</strong><span>answers came back with the real data</span></li>
-        <li><strong>1</strong><span>Docker command to start the gateway</span></li>
+        <li><strong>1</strong><span>Docker command to start the chat</span></li>
       </ul>
     </div>
   </article>
@@ -265,7 +265,7 @@
   <article class="product" id="polcv" aria-labelledby="polcv-title">
     <div class="wrap">
       <header class="product-head reveal">
-        <p class="eyebrow">For job seekers · Windows app</p>
+        <p class="eyebrow">For job seekers · runs on your computer</p>
         <h3 class="product-name" id="polcv-title">PolCV</h3>
         <p class="tagline">Turns a link to a Polish job ad into a CV tailored to it, scores the CV like an applicant tracking system and helps you prepare for the interview.</p>
         <div class="cta-row">
@@ -317,7 +317,7 @@
       <header class="product-head reveal">
         <p class="eyebrow">For web and SEO agencies</p>
         <h3 class="product-name" id="polcrm-title">PolCRM</h3>
-        <p class="tagline">Clients, sales, tasks and finances in one app. The assistant creates tasks and notes on its own.</p>
+        <p class="tagline">Clients, sales, tasks and finances in one app. The assistant creates tasks and notes for you.</p>
         <div class="cta-row">
           <a class="btn btn-small" href="https://github.com/boromat/polcrm/blob/main/README.en.md" target="_blank" rel="noopener">View on GitHub<span class="sr-only">: PolCRM</span></a>
           <a class="more" href="https://github.com/boromat/polcrm/blob/main/README.en.md#running-locally" target="_blank" rel="noopener">How to run it<span class="sr-only">: PolCRM</span></a>
@@ -325,8 +325,8 @@
       </header>
       <figure class="shot reveal">
         <picture>
-          <source media="(prefers-reduced-motion: reduce)" srcset="../assets/polcrm-poster.webp" type="image/webp">
-          <img src="../assets/polcrm.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="PolCRM: team dashboard, company list, sales pipeline, tasks, finances and the AI assistant.">
+          <source media="(prefers-reduced-motion: reduce)" srcset="../assets/polcrm-en-poster.webp" type="image/webp">
+          <img src="../assets/polcrm-en.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="PolCRM: team dashboard, company list, sales pipeline, tasks, finances and the AI assistant.">
         </picture>
       </figure>
       <ul class="facts reveal">
@@ -349,7 +349,7 @@
           <li><a href="https://github.com/boromat/polanon/blob/main/benchmarks/README.md" target="_blank" rel="noopener">PolAnon benchmark</a><span>Comparison with Presidio, and what the test does not prove.</span></li>
           <li><a href="https://github.com/boromat/polgate/blob/main/evals/README.md" target="_blank" rel="noopener">PolGate leak test</a><span>27 conversations I wrote: none of the 125 protected values reached the provider.</span></li>
           <li><a href="https://github.com/boromat/polcrm/blob/main/ai_assistant.py" target="_blank" rel="noopener">PolCRM AI assistant</a><span>12 tools in JSON Schema, and tests that need no API.</span></li>
-          <li><a href="https://github.com/boromat/polsales/blob/main/evals/README.md" target="_blank" rel="noopener" hreflang="pl">PolSales assistant evaluation</a><span>18 questions checked against SQL, plus prompt injection traps. In Polish.</span></li>
+          <li><a href="https://github.com/boromat/polsales/blob/main/evals/README.md" target="_blank" rel="noopener" hreflang="pl">PolSales assistant evaluation</a><span>18 questions checked against SQL, plus 4 traps, two of them with an instruction hidden in the data. In Polish.</span></li>
           <li><a href="https://github.com/boromat/polcv/blob/main/evals/README.md" target="_blank" rel="noopener" hreflang="pl">PolCV evaluations</a><span>How I measure answer quality, cost and time. In Polish.</span></li>
       </ol>
     </div>

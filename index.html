@@ -90,7 +90,7 @@
         "codeRepository": "https://github.com/boromat/polcv",
         "programmingLanguage": "TypeScript",
         "license": "https://opensource.org/licenses/MIT",
-        "description": "Aplikacja na komputer, która dopasowuje CV do konkretnego ogłoszenia o pracę na polskim rynku.",
+        "description": "Lokalna aplikacja w przeglądarce, która dopasowuje CV do konkretnego ogłoszenia o pracę na polskim rynku.",
         "author": { "@id": "https://boromat.pl/#person" }
       },
       {
@@ -109,7 +109,7 @@
         "codeRepository": "https://github.com/boromat/polcrm",
         "programmingLanguage": "Python",
         "license": "https://opensource.org/licenses/MIT",
-        "description": "CRM, lejek sprzedaży i finanse dla małej agencji WWW i SEO, z asystentem AI, który sam wykonuje zadania.",
+        "description": "CRM, lejek sprzedaży i finanse dla małej agencji WWW i SEO, z asystentem AI, który na prośbę zakłada zadania i notatki.",
         "author": { "@id": "https://boromat.pl/#person" }
       }
     ]
@@ -226,7 +226,7 @@
         <img src="assets/polanon-demo.pl.svg" width="960" height="500" loading="lazy" decoding="async" alt="PolAnon w terminalu: maskowanie polskiego tekstu w Pythonie i przywracanie odpowiedzi, bramka w Dockerze przed narzędziem i wyniki wobec Presidio.">
       </figure>
       <ul class="facts reveal">
-        <li><strong>71%</strong><span>danych zamaskowanych w&nbsp;całości na publicznych polskich tekstach (Presidio: 66%)</span></li>
+        <li><strong>72%</strong><span>danych zamaskowanych w&nbsp;całości na publicznych polskich tekstach (Presidio: 66%)</span></li>
         <li><strong>0</strong><span>zależności w&nbsp;rdzeniu, wystarczy sam Python</span></li>
         <li><strong>7</strong><span>przypadków odmiany, w&nbsp;których rozpoznaje imiona i&nbsp;nazwiska</span></li>
       </ul>
@@ -255,7 +255,7 @@
       <ul class="facts reveal">
         <li><strong>0 ze 125</strong><span>chronionych wartości dotarło do dostawcy w&nbsp;moim teście wycieków</span></li>
         <li><strong>60 z&nbsp;60</strong><span>odpowiedzi wróciło z&nbsp;prawdziwymi danymi</span></li>
-        <li><strong>1</strong><span>polecenie Dockera wystarczy, żeby uruchomić bramkę</span></li>
+        <li><strong>1</strong><span>polecenie Dockera wystarczy, żeby uruchomić czat</span></li>
       </ul>
     </div>
   </article>
@@ -263,7 +263,7 @@
   <article class="product" id="polcv" aria-labelledby="polcv-title">
     <div class="wrap">
       <header class="product-head reveal">
-        <p class="eyebrow">Dla szukających pracy · aplikacja na Windows</p>
+        <p class="eyebrow">Dla szukających pracy · działa na Twoim komputerze</p>
         <h3 class="product-name" id="polcv-title">PolCV</h3>
         <p class="tagline">Z&nbsp;linku do ogłoszenia robi CV dopasowane do wymagań, ocenia je jak system rekrutacyjny i&nbsp;przygotowuje do rozmowy.</p>
         <div class="cta-row">
@@ -315,7 +315,7 @@
       <header class="product-head reveal">
         <p class="eyebrow">Dla agencji WWW i&nbsp;SEO</p>
         <h3 class="product-name" id="polcrm-title">PolCRM</h3>
-        <p class="tagline">Klienci, sprzedaż, zadania i&nbsp;finanse w&nbsp;jednej aplikacji. Asystent sam zakłada zadania i&nbsp;notatki.</p>
+        <p class="tagline">Klienci, sprzedaż, zadania i&nbsp;finanse w&nbsp;jednej aplikacji. Asystent zakłada za Ciebie zadania i&nbsp;notatki.</p>
         <div class="cta-row">
           <a class="btn btn-small" href="https://github.com/boromat/polcrm" target="_blank" rel="noopener">Zobacz na GitHubie<span class="sr-only">: PolCRM</span></a>
           <a class="more" href="https://github.com/boromat/polcrm#uruchomienie-lokalnie" target="_blank" rel="noopener">Jak uruchomić<span class="sr-only"> PolCRM</span></a>
@@ -347,7 +347,7 @@
           <li><a href="https://github.com/boromat/polanon/blob/main/benchmarks/README.md" target="_blank" rel="noopener">Benchmark PolAnon</a><span>Porównanie z&nbsp;Presidio i&nbsp;opis tego, czego test nie dowodzi.</span></li>
           <li><a href="https://github.com/boromat/polgate/blob/main/evals/README.md" target="_blank" rel="noopener">Test wycieków PolGate</a><span>27 napisanych przeze mnie rozmów: do dostawcy nie dotarła żadna ze 125 chronionych wartości.</span></li>
           <li><a href="https://github.com/boromat/polcrm/blob/main/ai_assistant.py" target="_blank" rel="noopener">Asystent AI w&nbsp;PolCRM</a><span>12 narzędzi w&nbsp;JSON Schema i&nbsp;testy, które nie potrzebują API.</span></li>
-          <li><a href="https://github.com/boromat/polsales/blob/main/evals/README.md" target="_blank" rel="noopener">Ewaluacja asystenta PolSales</a><span>18 pytań sprawdzanych zapytaniem SQL i&nbsp;pułapki ze wstrzykniętym poleceniem.</span></li>
+          <li><a href="https://github.com/boromat/polsales/blob/main/evals/README.md" target="_blank" rel="noopener">Ewaluacja asystenta PolSales</a><span>18 pytań sprawdzanych zapytaniem SQL i&nbsp;4 pułapki, m.in. z&nbsp;poleceniem ukrytym w&nbsp;danych.</span></li>
           <li><a href="https://github.com/boromat/polcv/blob/main/evals/README.md" target="_blank" rel="noopener">Ewaluacje PolCV</a><span>Jak mierzę jakość odpowiedzi modelu, koszt i&nbsp;czas.</span></li>
       </ol>
     </div>
